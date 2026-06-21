@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ダッシュボード | Fleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}</style>
+</head>
+<body class="font-sans bg-background text-foreground antialiased">
+  <div class="min-h-screen">
+    <div id="site-header"></div>
+
+    <main class="pt-16">
+      <div class="mx-auto max-w-6xl px-5 py-8">
+        <!-- 見出し -->
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/30 font-heading text-lg font-bold text-secondary-foreground">み</span>
+            <div>
+              <p class="font-heading text-xl font-bold text-foreground">こんにちは、みどり先生</p>
+              <p class="text-sm text-muted-foreground">サブスクプラン・フラワー</p>
+            </div>
+          </div>
+          <a href="instructor-workshop-new.html" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M12 5v14M5 12h14"/></svg>
+            ワークショップを作る
+          </a>
+        </div>
+
+        <!-- 指標カード -->
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <!-- 配信枠 -->
+          <div class="rounded-3xl border border-border bg-card p-6">
+            <p class="text-sm text-muted-foreground">今月の配信枠</p>
+            <p class="mt-2 font-heading text-3xl font-bold text-foreground">5<span class="text-lg font-medium text-muted-foreground"> / 8回</span></p>
+            <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-muted"><div class="h-full w-[62%] rounded-full bg-secondary"></div></div>
+            <p class="mt-3 text-xs leading-relaxed text-muted-foreground">サブスクに含まれる残り3回。9回目以降は1回ごとに<span class="text-foreground font-medium">980円</span>です。</p>
+          </div>
+          <!-- ファン -->
+          <div class="rounded-3xl border border-border bg-card p-6">
+            <p class="text-sm text-muted-foreground">あなたのファン</p>
+            <p class="mt-2 font-heading text-3xl font-bold text-primary">128<span class="text-lg font-medium text-muted-foreground"> 人</span></p>
+            <p class="mt-3 text-xs leading-relaxed text-muted-foreground">先月から<span class="text-secondary-foreground font-medium">+16人</span>。新しい開催を公開すると、ファンにLINEでお知らせできます。</p>
+          </div>
+          <!-- 今月の売上 -->
+          <div class="rounded-3xl border border-border bg-card p-6">
+            <p class="text-sm text-muted-foreground">今月の参加費売上</p>
+            <p class="mt-2 font-heading text-3xl font-bold text-foreground">¥86,400</p>
+            <p class="mt-3 text-xs leading-relaxed text-muted-foreground">利用料3,980円・決済手数料を差し引いた目安の手取りは<span class="text-foreground font-medium">¥79,300</span>。</p>
+          </div>
+        </div>
+
+        <!-- 今後の開催 -->
+        <section class="mt-10">
+          <h2 class="font-heading text-lg font-bold text-foreground">今後の開催予定</h2>
+          <div class="mt-4 space-y-3">
+            <!-- まもなく開催（配信開始ボタン） -->
+            <div class="flex flex-col gap-4 rounded-3xl border-2 border-primary/30 bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div class="flex items-center gap-4">
+                <img src="images/ws-flower.png" alt="" class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
+                <div>
+                  <p class="font-heading text-base font-bold text-foreground">季節の花で作る、小さなスワッグ</p>
+                  <p class="mt-1 text-sm text-muted-foreground">本日 10:00〜・予約 7名／10名</p>
+                  <span class="mt-1.5 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">まもなく開催</span>
+                </div>
+              </div>
+              <a href="instructor-live.html" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M7 5v14l11-7z"/></svg>
+                配信をはじめる
+              </a>
+            </div>
+            <!-- 予定 -->
+            <div class="flex items-center gap-4 rounded-3xl border border-border bg-card p-5">
+              <img src="images/ws-flower.png" alt="" class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
+              <div class="flex-1">
+                <p class="font-heading text-base font-bold text-foreground">ドライフラワーのリース作り</p>
+                <p class="mt-1 text-sm text-muted-foreground">6月29日（日）14:00〜・予約 3名／10名</p>
+              </div>
+              <a href="#" class="text-sm font-medium text-primary underline-offset-4 hover:underline">編集</a>
+            </div>
+            <div class="flex items-center gap-4 rounded-3xl border border-border bg-card p-5">
+              <img src="images/ws-flower.png" alt="" class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
+              <div class="flex-1">
+                <p class="font-heading text-base font-bold text-foreground">夏の生花アレンジメント</p>
+                <p class="mt-1 text-sm text-muted-foreground">7月6日（日）10:00〜・予約 1名／10名</p>
+              </div>
+              <a href="#" class="text-sm font-medium text-primary underline-offset-4 hover:underline">編集</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- お知らせ（アップセル） -->
+        <div class="mt-8 flex flex-col gap-3 rounded-3xl bg-secondary/10 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p class="font-heading text-base font-bold text-secondary-foreground">ファンに新着をお知らせしませんか</p>
+            <p class="mt-1 text-sm text-foreground/80">次の開催を公開すると、128人のファンにLINEでまとめてお知らせできます。</p>
+          </div>
+          <a href="instructor-workshop-new.html" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">新しい開催を作る</a>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+  <script src="assets/fleri.js"></script>
+</body>
+</html>

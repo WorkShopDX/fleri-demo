@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>予約が確定しました | Fleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}</style>
+</head>
+<body class="font-sans bg-background text-foreground antialiased">
+  <div class="min-h-screen">
+    <div id="site-header"></div>
+
+    <main class="pt-16">
+      <div class="mx-auto max-w-2xl px-5 py-12 text-center">
+        <span class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-secondary/25 text-secondary-foreground">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-10 w-10"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5"/></svg>
+        </span>
+        <h1 class="mt-6 font-heading text-2xl font-bold text-foreground md:text-3xl">予約が確定しました</h1>
+        <p class="mt-3 text-base leading-relaxed text-muted-foreground">花山さくらさま、ありがとうございます。<br />確認メールをお送りしました。当日を楽しみにお待ちください。</p>
+
+        <!-- 予約内容 -->
+        <div class="mt-8 rounded-3xl border border-border bg-card p-6 text-left">
+          <div class="flex gap-4">
+            <img src="images/ws-flower.png" alt="" class="h-20 w-20 shrink-0 rounded-2xl object-cover" />
+            <div>
+              <p class="font-heading text-base font-bold leading-snug text-foreground">季節の花で作る、小さなスワッグ</p>
+              <p class="mt-1 text-sm text-muted-foreground">みどり先生</p>
+              <p class="mt-1 text-sm text-muted-foreground">6月22日（日）10:00〜11:30</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- LINE 友だち追加 -->
+        <div class="mt-5 rounded-3xl border-2 border-secondary/40 bg-secondary/10 p-6 text-left">
+          <h2 class="font-heading text-lg font-bold text-secondary-foreground">あと1ステップ：LINEで友だち追加</h2>
+          <p class="mt-2 text-sm leading-relaxed text-foreground/80">開催前のリマインドと、当日の参加リンクをLINEでお送りします。受け取り漏れがないよう、友だち追加をお願いします。</p>
+          <a href="#" class="mt-4 inline-flex items-center gap-2 rounded-full bg-secondary px-7 py-3.5 text-base font-medium text-secondary-foreground transition-transform hover:scale-[1.02]">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 5h16v11H8l-4 4z"/></svg>
+            LINEで友だち追加
+          </a>
+        </div>
+
+        <!-- 当日の流れ -->
+        <div class="mt-5 rounded-3xl border border-border bg-card p-6 text-left">
+          <h2 class="font-heading text-base font-bold text-foreground">当日までの流れ</h2>
+          <ol class="mt-4 space-y-3 text-sm text-muted-foreground">
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-foreground">1</span>数日前に花材キットがご自宅に届きます</li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-foreground">2</span>前日にLINEでリマインドが届きます</li>
+            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-foreground">3</span>当日、参加リンクを開くだけでスタート</li>
+          </ol>
+          <a href="live.html" class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
+            参加画面を見てみる（デモ）
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-4 w-4"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <a href="index.html" class="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+          ほかのワークショップも見る
+        </a>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+  <script src="assets/fleri.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>予約・お支払い | Fleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}</style>
+</head>
+<body class="font-sans bg-background text-foreground antialiased">
+  <div class="min-h-screen">
+    <div id="site-header"></div>
+
+    <main class="pt-16">
+      <div class="mx-auto max-w-5xl px-5 pt-6">
+        <a href="workshop.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-4 w-4"><path d="M15 6l-6 6 6 6"/></svg>
+          ワークショップにもどる
+        </a>
+      </div>
+
+      <div class="mx-auto max-w-5xl px-5 py-6">
+        <h1 class="font-heading text-2xl font-bold text-foreground">予約とお支払い</h1>
+        <p class="mt-2 text-sm text-muted-foreground">お席を確保しています。3分以内のお支払いで予約が確定します。</p>
+
+        <div class="mt-8 lg:grid lg:grid-cols-5 lg:gap-10">
+          <!-- 左：フォーム -->
+          <form class="lg:col-span-3" onsubmit="event.preventDefault(); window.location.href='thanks.html';">
+            <!-- お客様情報 -->
+            <section class="rounded-3xl border border-border bg-card p-6">
+              <h2 class="font-heading text-lg font-bold text-foreground">お申し込み者さま</h2>
+
+              <!-- LINEモード（既定・入力なし） -->
+              <div id="mode-line" class="mt-4">
+                <div class="flex items-center gap-3 rounded-2xl border border-secondary/40 bg-secondary/10 p-4">
+                  <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary/30 font-heading text-base font-bold text-secondary-foreground">花</span>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium text-foreground">花山 さくら さん</p>
+                    <p class="text-xs text-secondary-foreground">LINE連携済み・ご連絡はLINEに届きます</p>
+                  </div>
+                  <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                </div>
+                <p class="mt-2 text-xs text-muted-foreground">LINEのお名前で予約します。入力は不要です。</p>
+                <button type="button" id="to-email" class="mt-3 text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground">LINEを使わない方：メールアドレスで予約する</button>
+              </div>
+
+              <!-- メールモード -->
+              <div id="mode-email" class="mt-4 hidden">
+                <div class="space-y-4">
+                  <div>
+                    <label class="text-sm font-medium text-foreground">お名前</label>
+                    <input type="text" placeholder="例：花山 さくら" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                  </div>
+                  <div>
+                    <label class="text-sm font-medium text-foreground">メールアドレス</label>
+                    <input type="email" placeholder="you@example.com" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                    <p class="mt-1.5 text-xs text-muted-foreground">予約確認とお支払いの控えをお送りします。</p>
+                  </div>
+                </div>
+                <button type="button" id="to-line" class="mt-3 inline-flex items-center gap-1.5 text-xs text-secondary-foreground underline underline-offset-4 hover:text-foreground">
+                  <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-4 w-4"><path d="M4 5h16v11H8l-4 4z"/></svg>
+                  LINEで予約する（入力なし）
+                </button>
+              </div>
+
+              <!-- 参加人数（共通） -->
+              <div class="mt-5 border-t border-border pt-5">
+                <label class="text-sm font-medium text-foreground">参加人数</label>
+                <select class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
+                  <option>1名</option><option>2名</option><option>3名</option>
+                </select>
+              </div>
+            </section>
+
+            <!-- お支払い -->
+            <section class="mt-5 rounded-3xl border border-border bg-card p-6">
+              <div class="flex items-center justify-between">
+                <h2 class="font-heading text-lg font-bold text-foreground">お支払い</h2>
+                <span class="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                  <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-4 w-4"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                  Stripeで安全に決済
+                </span>
+              </div>
+              <div class="mt-4 space-y-4">
+                <div>
+                  <label class="text-sm font-medium text-foreground">カード番号</label>
+                  <input type="text" value="4242 4242 4242 4242" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="text-sm font-medium text-foreground">有効期限</label>
+                    <input type="text" value="12 / 28" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                  </div>
+                  <div>
+                    <label class="text-sm font-medium text-foreground">セキュリティコード</label>
+                    <input type="text" value="123" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <button type="submit" class="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
+              ¥2,800 を支払って予約を確定
+            </button>
+            <p class="mt-3 text-center text-xs text-muted-foreground">「予約を確定」を押すと、利用規約・キャンセルポリシーに同意したものとみなされます。</p>
+          </form>
+
+          <!-- 右：注文サマリー -->
+          <aside class="mt-8 lg:col-span-2 lg:mt-0">
+            <div class="rounded-3xl border border-border bg-card p-6">
+              <div class="flex gap-4">
+                <img src="images/ws-flower.png" alt="" class="h-20 w-20 shrink-0 rounded-2xl object-cover" />
+                <div>
+                  <p class="font-heading text-sm font-bold leading-snug text-foreground">季節の花で作る、小さなスワッグ</p>
+                  <p class="mt-1 text-xs text-muted-foreground">みどり先生</p>
+                  <p class="mt-1 text-xs text-muted-foreground">6月22日（日）10:00〜</p>
+                </div>
+              </div>
+              <hr class="my-5 border-border" />
+              <dl class="space-y-2 text-sm">
+                <div class="flex justify-between"><dt class="text-muted-foreground">参加費 × 1名</dt><dd class="text-foreground">¥2,800</dd></div>
+                <div class="flex justify-between"><dt class="text-muted-foreground">花材キット送料</dt><dd class="text-foreground">込み</dd></div>
+              </dl>
+              <hr class="my-5 border-border" />
+              <div class="flex items-baseline justify-between">
+                <span class="font-medium text-foreground">お支払い合計</span>
+                <span class="text-2xl font-bold text-primary">¥2,800</span>
+              </div>
+              <div class="mt-5 flex items-start gap-2 rounded-2xl bg-secondary/15 p-4 text-xs leading-relaxed text-secondary-foreground">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+                開催前のリマインドと当日の参加リンクは、LINEでお送りします。メールで予約された方には、お支払い後にLINE友だち追加のご案内も表示されます。
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+  <script src="assets/fleri.js"></script>
+  <script>
+    // 予約モード切り替え（LINE ⇔ メール）
+    const modeLine = document.getElementById("mode-line");
+    const modeEmail = document.getElementById("mode-email");
+    function show(mode) {
+      modeLine.classList.toggle("hidden", mode !== "line");
+      modeEmail.classList.toggle("hidden", mode !== "email");
+    }
+    document.getElementById("to-email").addEventListener("click", () => show("email"));
+    document.getElementById("to-line").addEventListener("click", () => show("line"));
+    if (location.hash === "#email") show("email");
+  </script>
+</body>
+</html>

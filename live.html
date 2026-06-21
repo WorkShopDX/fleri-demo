@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ライブ参加 | Fleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}</style>
+</head>
+<body class="font-sans bg-[#2A2622] text-white antialiased">
+  <div class="flex min-h-screen flex-col">
+    <!-- バー -->
+    <header class="flex items-center justify-between px-5 py-3">
+      <div class="flex items-center gap-3">
+        <span class="font-heading text-xl font-bold text-white">Fleri</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-red-500/90 px-2.5 py-0.5 text-xs font-medium"><span class="h-1.5 w-1.5 rounded-full bg-white"></span>LIVE</span>
+        <span class="hidden text-sm text-white/70 sm:inline">季節の花で作る、小さなスワッグ</span>
+      </div>
+      <span class="text-sm text-white/70">残り 38:24</span>
+    </header>
+
+    <div class="flex flex-1 flex-col lg:flex-row">
+      <!-- ステージ -->
+      <main class="relative flex-1 p-3">
+        <div class="relative h-full min-h-[46vh] overflow-hidden rounded-3xl">
+          <img src="images/ws-flower.png" alt="先生の配信映像" class="h-full w-full object-cover" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+            <span class="rounded-full bg-black/50 px-3 py-1 text-sm">みどり先生</span>
+          </div>
+          <!-- 自分の小窓 -->
+          <div class="absolute right-4 top-4 flex h-24 w-32 items-center justify-center rounded-2xl border border-white/20 bg-black/40 text-xs text-white/70">あなた</div>
+        </div>
+
+        <!-- コントロール -->
+        <div class="mt-3 flex items-center justify-center gap-3">
+          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20" aria-label="マイク">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>
+          </button>
+          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20" aria-label="カメラ">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>
+          </button>
+          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/80 transition hover:bg-secondary" aria-label="リアクション">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><path d="M12 20s-7-4.4-9.2-8.5C1.3 8.6 2.8 5.5 6 5.5c1.9 0 3.1 1.1 4 2.4.9-1.3 2.1-2.4 4-2.4 3.2 0 4.7 3.1 3.2 6C19 15.6 12 20 12 20z"/></svg>
+          </button>
+          <button onclick="document.getElementById('survey').classList.remove('hidden')" class="ml-2 rounded-full bg-white/10 px-4 py-3 text-sm text-white/80 transition hover:bg-white/20">退出</button>
+        </div>
+      </main>
+
+      <!-- チャット -->
+      <aside class="flex w-full flex-col border-t border-white/10 lg:w-80 lg:border-l lg:border-t-0">
+        <div class="px-4 py-3 text-sm font-medium text-white/80">みんなのコメント</div>
+        <div class="flex-1 space-y-3 overflow-y-auto px-4 pb-4 text-sm">
+          <p><span class="text-secondary">あおい：</span><span class="text-white/80">きれいな色ですね！</span></p>
+          <p><span class="text-secondary">みどり先生：</span><span class="text-white/80">ありがとうございます。次はリボンを結びます。</span></p>
+          <p><span class="text-secondary">まり：</span><span class="text-white/80">結び方、もう一度見せてください〜</span></p>
+          <p><span class="text-secondary">みどり先生：</span><span class="text-white/80">もちろん。ゆっくりやりますね。</span></p>
+        </div>
+        <div class="flex items-center gap-2 border-t border-white/10 p-3">
+          <input type="text" placeholder="コメントを送る" class="flex-1 rounded-full bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none" />
+          <button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 配信終了後アンケート（ファン化ループ） -->
+  <div id="survey" class="fixed inset-0 z-50 hidden bg-black/60 p-5">
+    <div class="mx-auto mt-[12vh] max-w-md rounded-3xl bg-background p-7 text-foreground">
+      <p class="text-sm font-medium text-primary">おつかれさまでした</p>
+      <h2 class="mt-2 font-heading text-2xl font-bold">また みどり先生に会いたいですか？</h2>
+      <p class="mt-2 text-sm text-muted-foreground">「はい」を選ぶと先生をフォローし、次の開催をLINEでお知らせします。いつでも解除できます。</p>
+      <div class="mt-6 flex flex-col gap-3">
+        <a href="thanks.html" class="flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
+          <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M12 20s-7-4.4-9.2-8.5C1.3 8.6 2.8 5.5 6 5.5c1.9 0 3.1 1.1 4 2.4.9-1.3 2.1-2.4 4-2.4 3.2 0 4.7 3.1 3.2 6C19 15.6 12 20 12 20z"/></svg>
+          はい、フォローする
+        </a>
+        <a href="index.html" class="text-center text-sm text-muted-foreground underline-offset-4 hover:underline">今はしない</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

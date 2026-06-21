@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ワークショップを探す | Fleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}</style>
+</head>
+<body class="font-sans bg-background text-foreground antialiased">
+  <div class="min-h-screen">
+    <div id="site-header"></div>
+
+    <main class="pt-16">
+      <div class="mx-auto max-w-6xl px-5 py-8">
+        <h1 class="font-heading text-2xl font-bold text-foreground md:text-3xl">ワークショップを探す</h1>
+        <p class="mt-2 text-base text-muted-foreground">気になるカテゴリから、ゆっくり選んでみてください。ログインなしで見られます。</p>
+
+        <!-- カテゴリ絞り込み -->
+        <div class="mt-6 -mx-5 overflow-x-auto px-5">
+          <div id="filters" class="flex w-max gap-2 pb-1">
+            <button data-filter="all" class="chip rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">すべて</button>
+            <button data-filter="beauty" class="chip rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary">美容・スキンケア</button>
+            <button data-filter="craft" class="chip rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary">手芸・クラフト</button>
+            <button data-filter="flower" class="chip rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary">フラワー</button>
+            <button data-filter="food" class="chip rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary">料理・食</button>
+            <button data-filter="aroma" class="chip rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary">アロマ・キャンドル</button>
+            <button data-filter="life" class="chip rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground transition-colors hover:border-primary">暮らしの知恵</button>
+          </div>
+        </div>
+
+        <p id="count" class="mt-5 text-sm text-muted-foreground"></p>
+
+        <!-- 一覧 -->
+        <div id="grid" class="mt-3 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+
+          <a href="workshop.html" data-cat="flower" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-flower.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">フラワー</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">季節の花で作る、小さなスワッグ</h3><p class="mt-1.5 text-sm text-muted-foreground">みどり先生</p><p class="mt-1 text-sm text-muted-foreground">6月22日（日）10:00〜</p><p class="mt-2 text-base font-bold text-primary">¥2,800</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="flower" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-flower.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">フラワー</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">ドライフラワーのリース作り</h3><p class="mt-1.5 text-sm text-muted-foreground">みどり先生</p><p class="mt-1 text-sm text-muted-foreground">6月29日（日）14:00〜</p><p class="mt-2 text-base font-bold text-primary">¥3,000</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="beauty" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-cosmetic.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">美容・スキンケア</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">手づくり化粧水とリップクリーム</h3><p class="mt-1.5 text-sm text-muted-foreground">さき先生</p><p class="mt-1 text-sm text-muted-foreground">6月25日（水）13:30〜</p><p class="mt-2 text-base font-bold text-primary">¥3,200</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="beauty" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-cosmetic.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">美容・スキンケア</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">自分に似合う色のチーク選び</h3><p class="mt-1.5 text-sm text-muted-foreground">さき先生</p><p class="mt-1 text-sm text-muted-foreground">7月3日（木）13:30〜</p><p class="mt-2 text-base font-bold text-primary">¥2,500</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="craft" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-craft.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">手芸・クラフト</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">やさしい色合いの刺繍ブローチ</h3><p class="mt-1.5 text-sm text-muted-foreground">かおり先生</p><p class="mt-1 text-sm text-muted-foreground">6月28日（土）14:00〜</p><p class="mt-2 text-base font-bold text-primary">¥2,500</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="craft" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-craft.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">手芸・クラフト</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">編み込みのミニマフラー</h3><p class="mt-1.5 text-sm text-muted-foreground">かおり先生</p><p class="mt-1 text-sm text-muted-foreground">7月5日（土）14:00〜</p><p class="mt-2 text-base font-bold text-primary">¥2,800</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="food" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-cooking.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">料理・食</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">旬の果実で作る、おうちジャム</h3><p class="mt-1.5 text-sm text-muted-foreground">ともこ先生</p><p class="mt-1 text-sm text-muted-foreground">7月2日（水）11:00〜</p><p class="mt-2 text-base font-bold text-primary">¥2,200</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="food" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative aspect-[4/3] overflow-hidden"><img src="images/ws-cooking.png" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" /><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">料理・食</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">はじめての天然酵母パン</h3><p class="mt-1.5 text-sm text-muted-foreground">ともこ先生</p><p class="mt-1 text-sm text-muted-foreground">7月9日（水）10:00〜</p><p class="mt-2 text-base font-bold text-primary">¥2,600</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="aroma" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-secondary/25 to-accent/20"><svg fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-12 w-12 text-secondary-foreground/60"><path d="M12 3c2 3 3 4.5 3 6.5a3 3 0 1 1-6 0C9 7.5 10 6 12 3z"/><path d="M12 21v-4"/></svg><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">アロマ・キャンドル</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">ソイキャンドルでつくる香りの時間</h3><p class="mt-1.5 text-sm text-muted-foreground">あや先生</p><p class="mt-1 text-sm text-muted-foreground">7月4日（金）20:00〜</p><p class="mt-2 text-base font-bold text-primary">¥3,000</p></div>
+          </a>
+
+          <a href="workshop.html" data-cat="life" class="ws group flex flex-col overflow-hidden rounded-3xl border border-border bg-card">
+            <div class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-secondary/25 to-accent/20"><svg fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-12 w-12 text-secondary-foreground/60"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg><span class="absolute left-3 top-3 rounded-full bg-background/85 px-3 py-1 text-xs font-medium text-primary">暮らしの知恵</span></div>
+            <div class="flex flex-1 flex-col p-4"><h3 class="font-heading text-base font-bold leading-snug text-foreground">重ねるだけの収納リセット術</h3><p class="mt-1.5 text-sm text-muted-foreground">けいこ先生</p><p class="mt-1 text-sm text-muted-foreground">7月6日（日）21:00〜</p><p class="mt-2 text-base font-bold text-primary">¥1,800</p></div>
+          </a>
+
+        </div>
+
+        <!-- 空状態 -->
+        <div id="empty" class="hidden py-16 text-center">
+          <p class="text-base text-muted-foreground">このカテゴリのワークショップは、まだ準備中です。</p>
+          <button data-filter="all" class="chip mt-4 inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground">すべて表示する</button>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+  <script src="assets/fleri.js"></script>
+  <script>
+    const names = { all:"すべて", beauty:"美容・スキンケア", craft:"手芸・クラフト", flower:"フラワー", food:"料理・食", aroma:"アロマ・キャンドル", life:"暮らしの知恵" };
+    const cards = Array.from(document.querySelectorAll("#grid .ws"));
+    const count = document.getElementById("count");
+    const empty = document.getElementById("empty");
+    const onCls = "border-primary bg-primary text-primary-foreground font-medium".split(" ");
+    const offCls = "border-border bg-card text-foreground".split(" ");
+
+    function setActive(filter) {
+      document.querySelectorAll(".chip[data-filter]").forEach((c) => {
+        const isOn = c.dataset.filter === filter && c.closest("#filters");
+        if (c.closest("#filters")) {
+          onCls.forEach((x) => c.classList.toggle(x, c.dataset.filter === filter));
+          offCls.forEach((x) => c.classList.toggle(x, c.dataset.filter !== filter));
+        }
+      });
+    }
+    function apply(filter) {
+      let n = 0;
+      cards.forEach((card) => {
+        const show = filter === "all" || card.dataset.cat === filter;
+        card.classList.toggle("hidden", !show);
+        if (show) n++;
+      });
+      count.textContent = (filter === "all" ? "全" : names[filter] + "：") + n + "件";
+      empty.classList.toggle("hidden", n !== 0);
+      document.getElementById("grid").classList.toggle("hidden", n === 0);
+      setActive(filter);
+      history.replaceState(null, "", filter === "all" ? "workshops.html" : "workshops.html?cat=" + filter);
+    }
+    document.addEventListener("click", (e) => {
+      const chip = e.target.closest(".chip[data-filter]");
+      if (chip) { e.preventDefault(); apply(chip.dataset.filter); }
+    });
+    const initial = new URLSearchParams(location.search).get("cat");
+    apply(initial && names[initial] ? initial : "all");
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>講師登録 | Fleri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/tailwind-config.js"></script>
+  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif}</style>
+</head>
+<body class="font-sans bg-background text-foreground antialiased">
+  <div class="min-h-screen">
+    <div id="site-header"></div>
+
+    <main class="pt-16">
+      <div class="mx-auto max-w-2xl px-5 py-10">
+        <p class="text-sm font-medium text-primary">教える人になる</p>
+        <h1 class="mt-2 font-heading text-2xl font-bold text-foreground md:text-3xl">アカウントを作成しましょう</h1>
+        <p class="mt-2 text-sm text-muted-foreground">3ステップで完了します。プランの選択は不要・まずは都度払いではじめられます。</p>
+
+        <!-- ステップ -->
+        <div class="mt-8 flex items-center gap-2 text-xs font-medium">
+          <span class="flex items-center gap-2 rounded-full bg-primary px-3 py-1.5 text-primary-foreground"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-primary-foreground/20">1</span>アカウント</span>
+          <span class="h-px flex-1 bg-border"></span>
+          <span class="flex items-center gap-2 rounded-full bg-muted px-3 py-1.5 text-muted-foreground"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-foreground/10">2</span>カテゴリ</span>
+          <span class="h-px flex-1 bg-border"></span>
+          <span class="flex items-center gap-2 rounded-full bg-muted px-3 py-1.5 text-muted-foreground"><span class="flex h-4 w-4 items-center justify-center rounded-full bg-foreground/10">3</span>プロフィール</span>
+        </div>
+
+        <form class="mt-8 space-y-5" onsubmit="event.preventDefault(); window.location.href='instructor-dashboard.html';">
+          <!-- STEP1 アカウント -->
+          <section class="rounded-3xl border border-border bg-card p-6">
+            <h2 class="font-heading text-lg font-bold text-foreground">1. アカウント</h2>
+            <div class="mt-4 space-y-4">
+              <div>
+                <label class="text-sm font-medium text-foreground">お名前（活動名でも可）</label>
+                <input type="text" placeholder="例：みどり" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label class="text-sm font-medium text-foreground">メールアドレス</label>
+                <input type="email" placeholder="you@example.com" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label class="text-sm font-medium text-foreground">パスワード</label>
+                <input type="password" placeholder="8文字以上" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP2 カテゴリ -->
+          <section class="rounded-3xl border border-border bg-card p-6">
+            <h2 class="font-heading text-lg font-bold text-foreground">2. カテゴリ</h2>
+            <p class="mt-1 text-sm text-muted-foreground">あなたが教える分野を選んでください（メイン1つ・サブ1つまで／最大2つ）。</p>
+            <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3" id="catgrid">
+              <button type="button" class="cat rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors hover:border-primary">美容・スキンケア</button>
+              <button type="button" class="cat rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors hover:border-primary">手芸・クラフト</button>
+              <button type="button" class="cat rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors hover:border-primary">フラワー</button>
+              <button type="button" class="cat rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors hover:border-primary">料理・食</button>
+              <button type="button" class="cat rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors hover:border-primary">アロマ・キャンドル</button>
+              <button type="button" class="cat rounded-2xl border border-border bg-background px-4 py-3 text-sm text-foreground transition-colors hover:border-primary">暮らしの知恵</button>
+            </div>
+            <p class="mt-2 text-xs text-muted-foreground" id="cathint">選択中：0／2</p>
+          </section>
+
+          <!-- STEP3 プロフィール -->
+          <section class="rounded-3xl border border-border bg-card p-6">
+            <h2 class="font-heading text-lg font-bold text-foreground">3. プロフィール</h2>
+            <div class="mt-4 space-y-4">
+              <div>
+                <label class="text-sm font-medium text-foreground">ひとことメッセージ</label>
+                <input type="text" placeholder="例：季節の花で、暮らしに彩りを。" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+              </div>
+              <div>
+                <label class="text-sm font-medium text-foreground">自己紹介</label>
+                <textarea rows="3" placeholder="これまでの活動や、教えるときに大切にしていることを書いてみましょう。" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
+            登録してはじめる
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="text-center text-xs text-muted-foreground">登録は無料。最初の成立開催まで利用料はかかりません。</p>
+        </form>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+  <script src="assets/fleri.js"></script>
+  <script>
+    // カテゴリ選択（最大2つ）
+    const cats = document.querySelectorAll("#catgrid .cat");
+    const hint = document.getElementById("cathint");
+    const on = "border-primary bg-primary/10 text-primary font-medium".split(" ");
+    cats.forEach((b) => b.addEventListener("click", () => {
+      const sel = document.querySelectorAll("#catgrid .cat.is-on");
+      if (!b.classList.contains("is-on") && sel.length >= 2) return;
+      b.classList.toggle("is-on");
+      on.forEach((c) => b.classList.toggle(c, b.classList.contains("is-on")));
+      hint.textContent = "選択中：" + document.querySelectorAll("#catgrid .cat.is-on").length + "／2";
+    }));
+  </script>
+</body>
+</html>
