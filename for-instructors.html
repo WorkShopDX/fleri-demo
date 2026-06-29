@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" class="scroll-smooth">
+<html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,175 +7,157 @@
   <meta name="description" content="好きを、伝える人に。会場費も移動もいらない。おうちから、オンラインでワークショップを開けます。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/tailwind-config.js"></script>
-  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Noto Sans JP",sans-serif}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fleri.css" />
+  <style>
+    .g3{display:grid;grid-template-columns:1fr;gap:14px}
+    .g2{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:760px){ .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)} }
+    .feat{display:flex;gap:14px}
+    .feat .ic{width:48px;height:48px;border-radius:999px;background:var(--soft);color:var(--deep);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+    .feat .ic svg{width:24px;height:24px}
+    .plan{display:flex;flex-direction:column;border:1px solid var(--border);background:var(--card);border-radius:18px;padding:24px}
+    .plan.hot{border:2px solid var(--primary);position:relative}
+    .plan .badge{position:absolute;top:-12px;left:24px;background:var(--primary);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+    .plan ul{margin-top:18px;display:flex;flex-direction:column;gap:10px;list-style:none}
+    .plan li{display:flex;gap:8px;font-size:14px;color:var(--ink)}
+    .plan li svg{width:16px;height:16px;color:var(--deep);flex:0 0 auto;margin-top:3px}
+    table{width:100%;border-collapse:collapse;font-size:14px;margin-top:16px;overflow:hidden;border-radius:14px;border:1px solid var(--border)}
+    th,td{padding:14px;text-align:left;border-bottom:1px solid var(--border)}
+    thead th{background:var(--muted-bg,#F0EEE8);font-weight:600}
+  </style>
 </head>
-<body class="font-sans bg-background text-foreground antialiased">
-  <div class="min-h-screen">
-    <div id="site-header"></div>
+<body>
+<div class="app">
 
-    <main class="pt-16">
-      <!-- ヒーロー -->
-      <section class="mx-auto max-w-6xl px-5 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <span class="rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-medium text-secondary-foreground">教える人へ</span>
-          <h1 class="mt-5 font-heading text-4xl font-bold leading-tight text-foreground md:text-5xl">好きを、伝える人に。</h1>
-          <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
-            会場費も、移動も、集客範囲の限界もいりません。おうちにいながら、あなたの「好き」を全国の誰かに届けられます。Fleriが、はじめの一歩をそっと支えます。
-          </p>
-          <div class="mt-8 flex flex-wrap items-center gap-4">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
-              創設メンバーに登録
-              <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </a>
-            <span class="text-sm text-muted-foreground">先行30名限定・登録は無料。</span>
-            <a href="instructor-signup.html" class="text-sm text-primary underline underline-offset-4 hover:text-primary/80">登録画面のデモを見る</a>
-          </div>
-        </div>
-      </section>
+  <header class="topbar">
+    <a href="index.html" class="brand">Fleri</a>
+    <nav class="dnav"><a href="workshops.html">さがす</a><a href="workshops.html">カテゴリ</a><a href="for-instructors.html">教える人へ</a></nav>
+    <div class="ta">
+      <a href="workshops.html" class="icbtn" aria-label="さがす"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></a>
+      <a href="#" class="acct-login pc-only">ログイン</a>
+      <a href="instructor-signup.html" class="btn btn-outline pc-only" style="padding:9px 16px;font-size:14px;border-radius:12px">会員登録</a>
+    </div>
+  </header>
 
-      <!-- 課題→解決 -->
-      <section class="bg-muted/40 py-16">
-        <div class="mx-auto max-w-6xl px-5">
-          <h2 class="font-heading text-2xl font-bold text-foreground md:text-3xl">こんなお悩み、ありませんか</h2>
-          <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div class="rounded-3xl border border-border bg-card p-6">
-              <p class="font-heading text-lg font-bold text-foreground">会場費がかさむ</p>
-              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">毎回のレンタルスペース代や材料の持ち運びが負担。やればやるほど手元に残らない。</p>
-            </div>
-            <div class="rounded-3xl border border-border bg-card p-6">
-              <p class="font-heading text-lg font-bold text-foreground">来られる人が限られる</p>
-              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">近くに住む人しか参加できない。せっかくの内容が、遠くの「好き」な人に届かない。</p>
-            </div>
-            <div class="rounded-3xl border border-border bg-card p-6">
-              <p class="font-heading text-lg font-bold text-foreground">手数料が高い</p>
-              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">集客サイトに頼ると、売上の10〜30%が手数料に。月10万円なら3万円が消える月も。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <!-- ヒーロー -->
+  <section class="blk" style="padding-top:32px">
+    <div style="max-width:680px">
+      <span class="eyebrow" style="position:static">教える人へ</span>
+      <h1 class="h1" style="font-size:32px;margin-top:14px">好きを、伝える人に。</h1>
+      <p class="sub" style="font-size:16px;margin-top:12px">会場費も、移動も、集客範囲の限界もいりません。おうちにいながら、あなたの「好き」を全国の誰かに届けられます。Fleriが、はじめの一歩をそっと支えます。</p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:20px">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="btn btn-primary">創設メンバーに登録
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <span class="sub">先行30名限定・登録は無料。</span>
+        <a href="instructor-signup.html" class="btn-text">登録画面のデモを見る</a>
+      </div>
+    </div>
+  </section>
 
-      <!-- できること -->
-      <section class="mx-auto max-w-6xl px-5 py-16">
-        <h2 class="font-heading text-2xl font-bold text-foreground md:text-3xl">Fleriでできること</h2>
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="flex gap-4 rounded-3xl border border-border bg-card p-6">
-            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/25 text-primary"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></span>
-            <div><p class="font-heading text-base font-bold text-foreground">配信もまるごと統合</p><p class="mt-1 text-sm text-muted-foreground">別のビデオ会議を契約しなくてOK。双方向ライブで、参加者の手元も見ながら進められます。</p></div>
-          </div>
-          <div class="flex gap-4 rounded-3xl border border-border bg-card p-6">
-            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/25 text-primary"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
-            <div><p class="font-heading text-base font-bold text-foreground">予約も決済もおまかせ</p><p class="mt-1 text-sm text-muted-foreground">参加者の予約と事前決済を自動で。あなたは内容づくりに集中できます。</p></div>
-          </div>
-          <div class="flex gap-4 rounded-3xl border border-border bg-card p-6">
-            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/25 text-primary"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><path d="M4 5h16v11H8l-4 4z"/></svg></span>
-            <div><p class="font-heading text-base font-bold text-foreground">LINEで自動リマインド</p><p class="mt-1 text-sm text-muted-foreground">開催前のお知らせをLINEで自動送信。当日の「来なかった」を減らします。</p></div>
-          </div>
-          <div class="flex gap-4 rounded-3xl border border-border bg-card p-6">
-            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/25 text-primary"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><path d="M12 20s-7-4.4-9.2-8.5C1.3 8.6 2.8 5.5 6 5.5c1.9 0 3.1 1.1 4 2.4.9-1.3 2.1-2.4 4-2.4 3.2 0 4.7 3.1 3.2 6C19 15.6 12 20 12 20z"/></svg></span>
-            <div><p class="font-heading text-base font-bold text-foreground">ファンが育っていく</p><p class="mt-1 text-sm text-muted-foreground">参加者があなたをフォロー。次の開催をお知らせでき、リピーターが増えていきます。</p></div>
-          </div>
-        </div>
-      </section>
+  <!-- お悩み -->
+  <section class="blk">
+    <div class="shead"><h2>こんなお悩み、ありませんか</h2></div>
+    <div class="g3">
+      <div class="panel"><p style="font-family:var(--head);font-weight:700;font-size:16px">会場費がかさむ</p><p class="sub" style="margin-top:8px">毎回のレンタルスペース代や材料の持ち運びが負担。やればやるほど手元に残らない。</p></div>
+      <div class="panel"><p style="font-family:var(--head);font-weight:700;font-size:16px">来られる人が限られる</p><p class="sub" style="margin-top:8px">近くに住む人しか参加できない。せっかくの内容が、遠くの「好き」な人に届かない。</p></div>
+      <div class="panel"><p style="font-family:var(--head);font-weight:700;font-size:16px">手数料が高い</p><p class="sub" style="margin-top:8px">集客サイトに頼ると、売上の10〜30%が手数料に。月10万円なら3万円が消える月も。</p></div>
+    </div>
+  </section>
 
-      <!-- 料金 -->
-      <section class="bg-muted/40 py-16">
-        <div class="mx-auto max-w-6xl px-5">
-          <h2 class="font-heading text-2xl font-bold text-foreground md:text-3xl">料金プラン</h2>
-          <p class="mt-2 text-base text-muted-foreground">手数料は売上に比例しません。月額の定額制。だから、開けば開くほど手元に残ります。</p>
+  <!-- できること -->
+  <section class="blk">
+    <div class="shead"><h2>Fleriでできること</h2></div>
+    <div class="g2">
+      <div class="panel feat"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></span><div><p style="font-family:var(--head);font-weight:700">配信もまるごと統合</p><p class="sub" style="margin-top:4px">別のビデオ会議を契約しなくてOK。双方向ライブで、参加者の手元も見ながら進められます。</p></div></div>
+      <div class="panel feat"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div><p style="font-family:var(--head);font-weight:700">予約も決済もおまかせ</p><p class="sub" style="margin-top:4px">参加者の予約と事前決済を自動で。あなたは内容づくりに集中できます。</p></div></div>
+      <div class="panel feat"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span><div><p style="font-family:var(--head);font-weight:700">LINEで自動リマインド</p><p class="sub" style="margin-top:4px">開催前のお知らせをLINEで自動送信。当日の「来なかった」を減らします。</p></div></div>
+      <div class="panel feat"><span class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.5C1.3 8.6 2.8 5.5 6 5.5c1.9 0 3.1 1.1 4 2.4.9-1.3 2.1-2.4 4-2.4 3.2 0 4.7 3.1 3.2 6C19 15.6 12 20 12 20z"/></svg></span><div><p style="font-family:var(--head);font-weight:700">ファンが育っていく</p><p class="sub" style="margin-top:4px">参加者があなたをフォロー。次の開催をお知らせでき、リピーターが増えていきます。</p></div></div>
+    </div>
+  </section>
 
-          <div class="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
-            <!-- 都度払い -->
-            <div class="flex flex-col rounded-3xl border border-border bg-card p-7">
-              <p class="font-heading text-lg font-bold text-foreground">都度払い</p>
-              <p class="mt-1 text-sm text-muted-foreground">まずは気軽に。開いた分だけ。</p>
-              <p class="mt-5"><span class="text-4xl font-bold text-primary">¥980</span><span class="ml-1 text-sm text-muted-foreground">／ 1回（90分・10名まで）</span></p>
-              <ul class="mt-6 space-y-2.5 text-sm text-foreground/80">
-                <li class="flex gap-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="font-medium text-foreground">最初の成立開催は無料。</span>1人でも有料予約が入った回から課金。</span></li>
-                <li class="flex gap-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>予約0人の回は0円。リスクなくはじめられます。</li>
-                <li class="flex gap-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>配信・予約・決済・LINE通知 すべて込み。</li>
-              </ul>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="mt-7 inline-flex items-center justify-center gap-2 rounded-full border border-primary px-6 py-3.5 text-base font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground">このプランではじめる</a>
-            </div>
+  <!-- 料金 -->
+  <section class="blk">
+    <div class="shead"><h2>料金プラン</h2></div>
+    <p class="sub" style="margin-top:-8px;margin-bottom:16px">手数料は売上に比例しません。月額の定額制。だから、開けば開くほど手元に残ります。</p>
+    <div class="g2">
+      <div class="plan">
+        <p style="font-family:var(--head);font-weight:700;font-size:18px">都度払い</p>
+        <p class="sub" style="margin-top:4px">まずは気軽に。開いた分だけ。</p>
+        <p style="margin-top:16px"><span style="font-size:34px;font-weight:700;color:var(--primary)">¥980</span><span class="sub"> ／ 1回（90分・10名まで）</span></p>
+        <ul>
+          <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>最初の成立開催は無料。</b>1人でも有料予約が入った回から課金。</span></li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>予約0人の回は0円。リスクなくはじめられます。</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>配信・予約・決済・LINE通知 すべて込み。</li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:20px">このプランではじめる</a>
+      </div>
+      <div class="plan hot">
+        <span class="badge">月5回以上ならお得</span>
+        <p style="font-family:var(--head);font-weight:700;font-size:18px">サブスクリプション</p>
+        <p class="sub" style="margin-top:4px">毎週ひらく人に。</p>
+        <p style="margin-top:16px"><span style="font-size:34px;font-weight:700;color:var(--primary)">¥3,980</span><span class="sub"> ／ 月（月8回まで）</span></p>
+        <ul>
+          <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>月8回まで配信し放題（各90分・10名まで）。</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>9回目以降は都度980円。使った分だけ。</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>ファン向けの限定機能も。</li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="btn btn-primary btn-block" style="margin-top:20px">このプランではじめる</a>
+      </div>
+    </div>
+    <div class="note" style="margin-top:16px">
+      <p style="font-weight:600;color:var(--ink)">お支払いについて（大切なご案内）</p>
+      <p style="margin-top:6px">上記はFleriの<span style="color:var(--ink)">利用料</span>です。これとは別に、参加費のお支払いには<span style="color:var(--ink)">決済手数料3.6%</span>（クレジットカード決済の実費）がかかります。たとえば参加費2,800円なら、決済手数料は約101円です。参加費は手取りを守るため<span style="color:var(--ink)">最低1,500円</span>から設定いただけます。</p>
+    </div>
+  </section>
 
-            <!-- サブスク -->
-            <div class="relative flex flex-col rounded-3xl border-2 border-primary bg-card p-7">
-              <span class="absolute -top-3 left-7 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">月5回以上ならお得</span>
-              <p class="font-heading text-lg font-bold text-foreground">サブスクリプション</p>
-              <p class="mt-1 text-sm text-muted-foreground">毎週ひらく人に。</p>
-              <p class="mt-5"><span class="text-4xl font-bold text-primary">¥3,980</span><span class="ml-1 text-sm text-muted-foreground">／ 月（月8回まで）</span></p>
-              <ul class="mt-6 space-y-2.5 text-sm text-foreground/80">
-                <li class="flex gap-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>月8回まで配信し放題（各90分・10名まで）。</li>
-                <li class="flex gap-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>9回目以降は都度980円。使った分だけ。</li>
-                <li class="flex gap-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>ファン向けの限定機能も。</li>
-              </ul>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">このプランではじめる</a>
-            </div>
-          </div>
+  <!-- 比較 -->
+  <section class="blk">
+    <div class="shead"><h2>手数料の集客サイトと比べると</h2></div>
+    <table>
+      <thead><tr><th>月の参加費売上</th><th>手数料サイト（約30%）</th><th style="color:var(--deep)">Fleri（サブスク定額）</th></tr></thead>
+      <tbody>
+        <tr><td>5万円</td><td style="color:var(--muted)">−15,000円</td><td style="font-weight:600;color:var(--deep)">−3,980円</td></tr>
+        <tr><td>10万円</td><td style="color:var(--muted)">−30,000円</td><td style="font-weight:600;color:var(--deep)">−3,980円</td></tr>
+        <tr><td style="border-bottom:none">20万円</td><td style="border-bottom:none;color:var(--muted)">−60,000円</td><td style="border-bottom:none;font-weight:600;color:var(--deep)">−3,980円</td></tr>
+      </tbody>
+    </table>
+    <p class="sub" style="margin-top:10px;font-size:12px">※ 決済手数料3.6%は別途。手数料サイトの料率はプラン・送客条件により異なります。</p>
+  </section>
 
-          <!-- 手数料の分離明記 -->
-          <div class="mt-6 rounded-2xl border border-border bg-card p-5 text-sm leading-relaxed text-muted-foreground">
-            <p class="font-medium text-foreground">お支払いについて（大切なご案内）</p>
-            <p class="mt-2">上記はFleriの<span class="text-foreground">利用料</span>です。これとは別に、参加費のお支払いには<span class="text-foreground">決済手数料3.6%</span>（クレジットカード決済の実費）がかかります。たとえば参加費2,800円なら、決済手数料は約101円です。<br />参加費は手取りを守るため<span class="text-foreground">最低1,500円</span>から設定いただけます。</p>
-          </div>
-        </div>
-      </section>
+  <!-- 創設メンバー -->
+  <section class="blk">
+    <div class="panel" style="border-color:var(--sec-bg);background:var(--soft)">
+      <span class="eyebrow" style="position:static;background:var(--primary);color:#fff;border:none">先行30名 限定</span>
+      <h2 style="font-family:var(--head);font-weight:700;font-size:22px;margin-top:12px">最初の仲間、創設メンバーを募集します</h2>
+      <p class="sub" style="margin-top:8px;color:var(--ink)">正式公開の前に、Fleriを一緒に育ててくださる方へ。創設メンバーには、こんなご用意があります。</p>
+      <ul class="plan" style="border:none;background:none;padding:0;margin-top:16px;display:grid;grid-template-columns:1fr;gap:10px">
+        <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>ローンチ時の優先紹介</b>：トップやSNSでご紹介し、最初の生徒集めをお手伝い</span></li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>初回開催の個別サポート</b>：一緒に準備・リハーサル。安心の初回に</span></li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>料金の据え置き保証</b>：登録時の料金のまま。将来の値上げ対象外</span></li>
+        <li><svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>ローンチ後の最初の1ヶ月、サブスク無料</b>：はじめてのお礼に</span></li>
+      </ul>
+    </div>
+  </section>
 
-      <!-- 比較 -->
-      <section class="mx-auto max-w-6xl px-5 py-16">
-        <h2 class="font-heading text-2xl font-bold text-foreground md:text-3xl">手数料の集客サイトと比べると</h2>
-        <div class="mt-8 overflow-hidden rounded-3xl border border-border">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="bg-muted/60 text-left">
-                <th class="p-4 font-medium text-foreground">月の参加費売上</th>
-                <th class="p-4 font-medium text-foreground">手数料サイト（約30%）</th>
-                <th class="p-4 font-medium text-primary">Fleri（サブスク定額）</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-border bg-card text-foreground/80">
-              <tr><td class="p-4">5万円</td><td class="p-4 text-muted-foreground">−15,000円</td><td class="p-4 font-medium text-primary">−3,980円</td></tr>
-              <tr><td class="p-4">10万円</td><td class="p-4 text-muted-foreground">−30,000円</td><td class="p-4 font-medium text-primary">−3,980円</td></tr>
-              <tr><td class="p-4">20万円</td><td class="p-4 text-muted-foreground">−60,000円</td><td class="p-4 font-medium text-primary">−3,980円</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="mt-3 text-xs text-muted-foreground">※ 決済手数料3.6%は別途。手数料サイトの料率はプラン・送客条件により異なります。</p>
-      </section>
-
-      <!-- 創設メンバー募集 -->
-      <section class="mx-auto max-w-6xl px-5 py-16">
-        <div class="rounded-[2rem] border border-secondary/40 bg-secondary/10 p-7 md:p-10">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">先行30名 限定</span>
-          <h2 class="mt-4 font-heading text-2xl font-bold text-foreground md:text-3xl">最初の仲間、創設メンバーを募集します</h2>
-          <p class="mt-3 text-base leading-relaxed text-muted-foreground">正式公開の前に、Fleriを一緒に育ててくださる方へ。創設メンバーには、こんなご用意があります。</p>
-          <ul class="mt-6 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
-            <li class="flex gap-2.5 text-sm text-foreground/85"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="font-medium text-foreground">ローンチ時の優先紹介</span>：トップやSNSでご紹介し、最初の生徒集めをお手伝い</span></li>
-            <li class="flex gap-2.5 text-sm text-foreground/85"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="font-medium text-foreground">初回開催の個別サポート</span>：一緒に準備・リハーサル。安心の初回に</span></li>
-            <li class="flex gap-2.5 text-sm text-foreground/85"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="font-medium text-foreground">料金の据え置き保証</span>：登録時の料金のまま。将来の値上げ対象外</span></li>
-            <li class="flex gap-2.5 text-sm text-foreground/85"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="font-medium text-foreground">機能づくりへの参加</span>：あなたの声を優先して反映します</span></li>
-            <li class="flex gap-2.5 text-sm text-foreground/85 sm:col-span-2"><svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="mt-0.5 h-4 w-4 shrink-0 text-secondary-foreground"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><span class="font-medium text-foreground">ローンチ後の最初の1ヶ月、サブスク無料</span>：はじめてのお礼に</span></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 最終CTA -->
-      <section class="px-5 pb-16">
-        <div class="mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-primary px-7 py-12 text-center text-primary-foreground md:py-16">
-          <h2 class="font-heading text-3xl font-bold md:text-4xl">あなたの「好き」を、咲かせてみませんか。</h2>
-          <p class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-primary-foreground/90">創設メンバーの登録は無料。1〜2分で完了します。</p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 rounded-full bg-background px-8 py-4 text-lg font-medium text-primary transition-transform hover:scale-[1.02]">
-            創設メンバーに登録する
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <div id="site-footer"></div>
+  <!-- 最終CTA -->
+  <div class="band" style="text-align:center;flex-direction:column">
+    <h2 style="margin:0 auto">あなたの「好き」を、届けてみませんか。</h2>
+    <p class="lead2" style="max-width:520px;margin:10px auto 0">創設メンバーの登録は無料。1〜2分で完了します。</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-_4hPWwosJlx9jEM0eaHQGWtZZqwgcrM892Y5225XzFmLdg/viewform" target="_blank" rel="noopener" class="btn btn-light" style="margin:18px auto 0">創設メンバーに登録する
+      <svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
   </div>
-  <script src="assets/fleri.js"></script>
+
+  <div class="spacer"></div>
+
+  <nav class="tabbar">
+    <a class="tab" href="index.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/></svg>ホーム</a>
+    <a class="tab" href="workshops.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>さがす</a>
+    <a class="tab" href="instructor-workshop-new.html"><span class="plus"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></a>
+    <a class="tab" href="#"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.5 21a2 2 0 0 1-3 0"/></svg>通知</a>
+    <a class="tab" href="instructor-dashboard.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>マイ</a>
+  </nav>
+
+</div>
 </body>
 </html>

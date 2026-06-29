@@ -1,112 +1,105 @@
 <!doctype html>
-<html lang="ja" class="scroll-smooth">
+<html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ダッシュボード | Fleri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/tailwind-config.js"></script>
-  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Noto Sans JP",sans-serif}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fleri.css" />
+  <style>
+    .stats{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:760px){.stats{grid-template-columns:repeat(3,1fr)}}
+    .prog{height:8px;border-radius:999px;background:var(--soft);overflow:hidden;margin-top:10px}
+    .prog span{display:block;height:100%;background:var(--primary)}
+    .ev{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:12px}
+    .ev img{width:52px;height:52px;border-radius:12px;object-fit:cover;flex:0 0 auto}
+    .ev.hot{border-color:var(--primary);flex-direction:column;align-items:stretch}
+    .badge2{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--soft);color:var(--deep)}
+  </style>
 </head>
-<body class="font-sans bg-background text-foreground antialiased">
-  <div class="min-h-screen">
-    <div id="site-header"></div>
+<body>
+<div class="app">
 
-    <main class="pt-16">
-      <div class="mx-auto max-w-6xl px-5 py-8">
-        <!-- 見出し -->
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/30 font-heading text-lg font-bold text-secondary-foreground">み</span>
-            <div>
-              <p class="font-heading text-xl font-bold text-foreground">こんにちは、みどり先生</p>
-              <p class="text-sm text-muted-foreground">サブスクプラン・フラワー</p>
-            </div>
-          </div>
-          <a href="instructor-workshop-new.html" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M12 5v14M5 12h14"/></svg>
-            ワークショップを作る
-          </a>
-        </div>
+  <header class="topbar">
+    <a href="index.html" class="brand">Fleri</a>
+    <nav class="dnav"><a href="workshops.html">さがす</a><a href="workshops.html">カテゴリ</a><a href="for-instructors.html">教える人へ</a></nav>
+    <div class="ta">
+      <span class="icbtn" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.5 21a2 2 0 0 1-3 0"/></svg></span>
+    </div>
+  </header>
 
-        <!-- 指標カード -->
-        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <!-- 配信枠 -->
-          <div class="rounded-3xl border border-border bg-card p-6">
-            <p class="text-sm text-muted-foreground">今月の配信枠</p>
-            <p class="mt-2 font-heading text-3xl font-bold text-foreground">5<span class="text-lg font-medium text-muted-foreground"> / 8回</span></p>
-            <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-muted"><div class="h-full w-[62%] rounded-full bg-secondary"></div></div>
-            <p class="mt-3 text-xs leading-relaxed text-muted-foreground">サブスクに含まれる残り3回。9回目以降は1回ごとに<span class="text-foreground font-medium">980円</span>です。</p>
-          </div>
-          <!-- ファン -->
-          <div class="rounded-3xl border border-border bg-card p-6">
-            <p class="text-sm text-muted-foreground">あなたのファン</p>
-            <p class="mt-2 font-heading text-3xl font-bold text-primary">128<span class="text-lg font-medium text-muted-foreground"> 人</span></p>
-            <p class="mt-3 text-xs leading-relaxed text-muted-foreground">先月から<span class="text-secondary-foreground font-medium">+16人</span>。新しい開催を公開すると、ファンにLINEでお知らせできます。</p>
-          </div>
-          <!-- 今月の売上 -->
-          <div class="rounded-3xl border border-border bg-card p-6">
-            <p class="text-sm text-muted-foreground">今月の参加費売上</p>
-            <p class="mt-2 font-heading text-3xl font-bold text-foreground">¥86,400</p>
-            <p class="mt-3 text-xs leading-relaxed text-muted-foreground">利用料3,980円・決済手数料を差し引いた目安の手取りは<span class="text-foreground font-medium">¥79,300</span>。</p>
-          </div>
-        </div>
+  <section class="blk" style="padding-top:24px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <span class="titem" style="padding:0;border:none;background:none"><span class="ava">み</span></span>
+      <div><h1 style="font-family:var(--head);font-weight:700;font-size:22px">こんにちは、みどり先生</h1><p class="sub" style="margin-top:2px">サブスクプラン・フラワー</p></div>
+    </div>
+    <a href="instructor-workshop-new.html" class="btn btn-primary" style="margin-top:16px">
+      <svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>ワークショップを作る</a>
 
-        <!-- 今後の開催 -->
-        <section class="mt-10">
-          <h2 class="font-heading text-lg font-bold text-foreground">今後の開催予定</h2>
-          <div class="mt-4 space-y-3">
-            <!-- まもなく開催（配信開始ボタン） -->
-            <div class="flex flex-col gap-4 rounded-3xl border-2 border-primary/30 bg-card p-5 sm:flex-row sm:items-center sm:justify-between">
-              <div class="flex items-center gap-4">
-                <img src="images/ws-flower.png" alt="" class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
-                <div>
-                  <p class="font-heading text-base font-bold text-foreground">季節の花で作る、小さなスワッグ</p>
-                  <p class="mt-1 text-sm text-muted-foreground">本日 10:00〜・予約 7名／10名</p>
-                  <span class="mt-1.5 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">まもなく開催</span>
-                </div>
-              </div>
-              <a href="instructor-live.html" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
-                <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M7 5v14l11-7z"/></svg>
-                配信をはじめる
-              </a>
-            </div>
-            <!-- 予定 -->
-            <div class="flex items-center gap-4 rounded-3xl border border-border bg-card p-5">
-              <img src="images/ws-flower.png" alt="" class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
-              <div class="flex-1">
-                <p class="font-heading text-base font-bold text-foreground">ドライフラワーのリース作り</p>
-                <p class="mt-1 text-sm text-muted-foreground">6月29日（日）14:00〜・予約 3名／10名</p>
-              </div>
-              <a href="#" class="text-sm font-medium text-primary underline-offset-4 hover:underline">編集</a>
-            </div>
-            <div class="flex items-center gap-4 rounded-3xl border border-border bg-card p-5">
-              <img src="images/ws-flower.png" alt="" class="h-16 w-16 shrink-0 rounded-2xl object-cover" />
-              <div class="flex-1">
-                <p class="font-heading text-base font-bold text-foreground">夏の生花アレンジメント</p>
-                <p class="mt-1 text-sm text-muted-foreground">7月6日（日）10:00〜・予約 1名／10名</p>
-              </div>
-              <a href="#" class="text-sm font-medium text-primary underline-offset-4 hover:underline">編集</a>
-            </div>
-          </div>
-        </section>
-
-        <!-- お知らせ（アップセル） -->
-        <div class="mt-8 flex flex-col gap-3 rounded-3xl bg-secondary/10 p-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p class="font-heading text-base font-bold text-secondary-foreground">ファンに新着をお知らせしませんか</p>
-            <p class="mt-1 text-sm text-foreground/80">次の開催を公開すると、128人のファンにLINEでまとめてお知らせできます。</p>
-          </div>
-          <a href="instructor-workshop-new.html" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">新しい開催を作る</a>
-        </div>
+    <div class="stats" style="margin-top:22px">
+      <div class="panel">
+        <p class="sub" style="margin:0">今月の配信枠</p>
+        <p style="margin-top:6px"><span style="font-size:28px;font-weight:700">5</span><span class="sub"> / 8回</span></p>
+        <div class="prog"><span style="width:62%"></span></div>
+        <p class="sub" style="margin-top:10px;font-size:12px">サブスクに含まれる残り3回。9回目以降は1回ごとに<b>980円</b>です。</p>
       </div>
-    </main>
+      <div class="panel">
+        <p class="sub" style="margin:0">あなたのファン</p>
+        <p style="margin-top:6px"><span style="font-size:28px;font-weight:700;color:var(--primary)">128</span><span class="sub"> 人</span></p>
+        <p class="sub" style="margin-top:10px;font-size:12px">先月から<b>+16人</b>。新しい開催を公開すると、ファンにLINEでお知らせできます。</p>
+      </div>
+      <div class="panel">
+        <p class="sub" style="margin:0">今月の参加費売上</p>
+        <p style="margin-top:6px;font-size:28px;font-weight:700">¥86,400</p>
+        <p class="sub" style="margin-top:10px;font-size:12px">利用料3,980円・決済手数料を差し引いた目安の手取りは<b>¥79,300</b>。</p>
+      </div>
+    </div>
+  </section>
 
-    <div id="site-footer"></div>
-  </div>
-  <script src="assets/fleri.js"></script>
+  <section class="blk">
+    <div class="shead"><h2>今後の開催予定</h2></div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="ev hot">
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="images/ws-flower.png" alt="" />
+          <div style="flex:1"><p style="font-family:var(--head);font-weight:700;font-size:15px">季節の花で作る、小さなスワッグ</p><p class="sub" style="font-size:13px;margin-top:2px">本日 10:00〜・予約 7名／10名</p><span class="badge2" style="margin-top:6px">まもなく開催</span></div>
+        </div>
+        <a href="instructor-live.html" class="btn btn-primary btn-block" style="margin-top:12px">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>配信をはじめる</a>
+      </div>
+      <div class="ev">
+        <img src="images/ws-flower.png" alt="" />
+        <div style="flex:1"><p style="font-family:var(--head);font-weight:700;font-size:15px">ドライフラワーのリース作り</p><p class="sub" style="font-size:13px;margin-top:2px">6月29日（日）14:00〜・予約 3名／10名</p></div>
+        <a href="instructor-workshop-new.html" class="btn-text">編集</a>
+      </div>
+      <div class="ev">
+        <img src="images/ws-flower.png" alt="" />
+        <div style="flex:1"><p style="font-family:var(--head);font-weight:700;font-size:15px">夏の生花アレンジメント</p><p class="sub" style="font-size:13px;margin-top:2px">7月6日（日）10:00〜・予約 1名／10名</p></div>
+        <a href="instructor-workshop-new.html" class="btn-text">編集</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="panel" style="background:var(--soft);border-color:var(--sec-bg)">
+      <h2 style="font-family:var(--head);font-weight:700;font-size:17px">ファンに新着をお知らせしませんか</h2>
+      <p class="sub" style="margin-top:6px;color:var(--ink)">次の開催を公開すると、128人のファンにLINEでまとめてお知らせできます。</p>
+      <a href="instructor-workshop-new.html" class="btn btn-outline btn-block" style="margin-top:14px">新しい開催を作る</a>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <nav class="tabbar">
+    <a class="tab" href="index.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/></svg>ホーム</a>
+    <a class="tab" href="workshops.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>さがす</a>
+    <a class="tab" href="instructor-workshop-new.html"><span class="plus"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></a>
+    <a class="tab" href="#"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.5 21a2 2 0 0 1-3 0"/></svg>通知</a>
+    <a class="tab on" href="instructor-dashboard.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>マイ</a>
+  </nav>
+
+</div>
 </body>
 </html>

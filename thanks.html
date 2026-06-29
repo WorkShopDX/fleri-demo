@@ -1,72 +1,75 @@
 <!doctype html>
-<html lang="ja" class="scroll-smooth">
+<html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>予約が確定しました | Fleri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/tailwind-config.js"></script>
-  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Noto Sans JP",sans-serif}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fleri.css" />
+  <style>.center{max-width:560px;margin:0 auto;padding:24px 20px;text-align:center}</style>
 </head>
-<body class="font-sans bg-background text-foreground antialiased">
-  <div class="min-h-screen">
-    <div id="site-header"></div>
+<body>
+<div class="app">
 
-    <main class="pt-16">
-      <div class="mx-auto max-w-2xl px-5 py-12 text-center">
-        <span class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-secondary/25 text-secondary-foreground">
-          <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-10 w-10"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5"/></svg>
-        </span>
-        <h1 class="mt-6 font-heading text-2xl font-bold text-foreground md:text-3xl">予約が確定しました</h1>
-        <p class="mt-3 text-base leading-relaxed text-muted-foreground">花山さくらさま、ありがとうございます。<br />確認メールをお送りしました。当日を楽しみにお待ちください。</p>
+  <header class="topbar">
+    <a href="index.html" class="brand">Fleri</a>
+    <nav class="dnav"><a href="workshops.html">さがす</a><a href="workshops.html">カテゴリ</a><a href="for-instructors.html">教える人へ</a></nav>
+    <div class="ta">
+      <a href="workshops.html" class="icbtn" aria-label="さがす"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></a>
+      <a href="#" class="acct-login pc-only">ログイン</a>
+      <a href="instructor-signup.html" class="btn btn-outline pc-only" style="padding:9px 16px;font-size:14px;border-radius:12px">会員登録</a>
+    </div>
+  </header>
 
-        <!-- 予約内容 -->
-        <div class="mt-8 rounded-3xl border border-border bg-card p-6 text-left">
-          <div class="flex gap-4">
-            <img src="images/ws-flower.png" alt="" class="h-20 w-20 shrink-0 rounded-2xl object-cover" />
-            <div>
-              <p class="font-heading text-base font-bold leading-snug text-foreground">季節の花で作る、小さなスワッグ</p>
-              <p class="mt-1 text-sm text-muted-foreground">みどり先生</p>
-              <p class="mt-1 text-sm text-muted-foreground">6月22日（日）10:00〜11:30</p>
-            </div>
-          </div>
-        </div>
+  <div class="center">
+    <span style="margin:0 auto;display:flex;width:80px;height:80px;border-radius:999px;background:var(--soft);color:var(--deep);align-items:center;justify-content:center">
+      <svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="width:40px;height:40px"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5"/></svg>
+    </span>
+    <h1 class="h1" style="margin-top:18px">予約が確定しました</h1>
+    <p class="sub">花山さくらさま、ありがとうございます。<br />確認メールをお送りしました。当日を楽しみにお待ちください。</p>
 
-        <!-- LINE 友だち追加 -->
-        <div class="mt-5 rounded-3xl border-2 border-secondary/40 bg-secondary/10 p-6 text-left">
-          <h2 class="font-heading text-lg font-bold text-secondary-foreground">あと1ステップ：LINEで友だち追加</h2>
-          <p class="mt-2 text-sm leading-relaxed text-foreground/80">開催前のリマインドと、当日の参加リンクをLINEでお送りします。受け取り漏れがないよう、友だち追加をお願いします。</p>
-          <a href="#" class="mt-4 inline-flex items-center gap-2 rounded-full bg-secondary px-7 py-3.5 text-base font-medium text-secondary-foreground transition-transform hover:scale-[1.02]">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><path d="M4 5h16v11H8l-4 4z"/></svg>
-            LINEで友だち追加
-          </a>
-        </div>
-
-        <!-- 当日の流れ -->
-        <div class="mt-5 rounded-3xl border border-border bg-card p-6 text-left">
-          <h2 class="font-heading text-base font-bold text-foreground">当日までの流れ</h2>
-          <ol class="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-foreground">1</span>数日前に花材キットがご自宅に届きます</li>
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-foreground">2</span>前日にLINEでリマインドが届きます</li>
-            <li class="flex gap-3"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-bold text-foreground">3</span>当日、参加リンクを開くだけでスタート</li>
-          </ol>
-          <a href="live.html" class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
-            参加画面を見てみる（デモ）
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-4 w-4"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-
-        <a href="index.html" class="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-          ほかのワークショップも見る
-        </a>
+    <div class="panel" style="margin-top:24px;text-align:left">
+      <div style="display:flex;gap:14px">
+        <img src="images/ws-flower.png" alt="" style="width:80px;height:80px;border-radius:14px;object-fit:cover;flex:0 0 auto" />
+        <div><p style="font-family:var(--head);font-weight:700;font-size:14px;line-height:1.4">季節の花で作る、小さなスワッグ</p><p style="font-size:12px;color:var(--muted);margin-top:4px">みどり先生</p><p style="font-size:12px;color:var(--muted);margin-top:2px">6月22日（日）10:00〜11:30</p></div>
       </div>
-    </main>
+    </div>
 
-    <div id="site-footer"></div>
+    <div class="panel" style="margin-top:14px;text-align:left;border-color:var(--sec-bg);background:var(--soft)">
+      <h2 style="font-family:var(--head);font-weight:700;font-size:17px;color:var(--deep)">あと1ステップ：LINEで友だち追加</h2>
+      <p style="font-size:14px;line-height:1.7;color:var(--ink);margin-top:8px">開催前のリマインドと、当日の参加リンクをLINEでお送りします。受け取り漏れがないよう、友だち追加をお願いします。</p>
+      <a href="#" class="btn btn-primary" style="margin-top:14px">
+        <svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg>
+        LINEで友だち追加
+      </a>
+    </div>
+
+    <div class="panel" style="margin-top:14px;text-align:left">
+      <h2 style="font-family:var(--head);font-weight:700;font-size:16px">当日までの流れ</h2>
+      <ol style="margin-top:14px;display:flex;flex-direction:column;gap:12px;list-style:none">
+        <li style="display:flex;gap:12px;font-size:14px;color:var(--muted)"><span style="flex:0 0 auto;width:24px;height:24px;border-radius:999px;background:var(--soft);color:var(--deep);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span>数日前に花材キットがご自宅に届きます</li>
+        <li style="display:flex;gap:12px;font-size:14px;color:var(--muted)"><span style="flex:0 0 auto;width:24px;height:24px;border-radius:999px;background:var(--soft);color:var(--deep);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span>前日にLINEでリマインドが届きます</li>
+        <li style="display:flex;gap:12px;font-size:14px;color:var(--muted)"><span style="flex:0 0 auto;width:24px;height:24px;border-radius:999px;background:var(--soft);color:var(--deep);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span>当日、参加リンクを開くだけでスタート</li>
+      </ol>
+      <a href="live.html" class="btn-text" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px">参加画面を見てみる（デモ）
+        <svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <a href="index.html" class="btn-text" style="display:inline-block;margin-top:22px;color:var(--muted)">ほかのワークショップも見る</a>
   </div>
-  <script src="assets/fleri.js"></script>
+
+  <div class="spacer"></div>
+
+  <nav class="tabbar">
+    <a class="tab" href="index.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/></svg>ホーム</a>
+    <a class="tab" href="workshops.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>さがす</a>
+    <a class="tab" href="instructor-workshop-new.html"><span class="plus"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></a>
+    <a class="tab" href="#"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.5 21a2 2 0 0 1-3 0"/></svg>通知</a>
+    <a class="tab" href="instructor-dashboard.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>マイ</a>
+  </nav>
+
+</div>
 </body>
 </html>

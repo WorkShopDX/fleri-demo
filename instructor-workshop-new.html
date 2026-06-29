@@ -1,158 +1,129 @@
 <!doctype html>
-<html lang="ja" class="scroll-smooth">
+<html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ワークショップを作る | Fleri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/tailwind-config.js"></script>
-  <style>body{font-family:"Noto Sans JP",sans-serif}.font-heading{font-family:"Noto Sans JP",sans-serif}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fleri.css" />
+  <style>
+    .form{max-width:680px;margin:0 auto;padding:0 20px}
+    .catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
+    @media(min-width:600px){.catgrid{grid-template-columns:repeat(3,1fr)}}
+    .catbtn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:10px;font-size:14px;color:var(--ink);cursor:pointer;font-family:var(--body)}
+    .catbtn.is-on{border-color:var(--primary);background:var(--soft);color:var(--deep);font-weight:600}
+    .two{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:600px){.two{grid-template-columns:1fr 1fr}}
+    .calc{background:var(--soft);border-radius:14px;padding:14px;margin-top:14px;font-size:14px}
+    .calc .r{display:flex;justify-content:space-between;color:var(--muted)}
+    .calc .r b{color:var(--ink);font-weight:600}
+    .calc .tot{display:flex;justify-content:space-between;border-top:1px solid var(--border);margin-top:8px;padding-top:8px;font-weight:600}
+    .chk{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);background:var(--soft);border-radius:16px;padding:16px;margin-top:18px}
+    .chk input{width:20px;height:20px;margin-top:2px;accent-color:#5C9596;flex:0 0 auto}
+  </style>
 </head>
-<body class="font-sans bg-background text-foreground antialiased">
-  <div class="min-h-screen">
-    <div id="site-header"></div>
+<body>
+<div class="app">
 
-    <main class="pt-16">
-      <div class="mx-auto max-w-2xl px-5 py-8">
-        <a href="instructor-dashboard.html" class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
-          <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-4 w-4"><path d="M15 6l-6 6 6 6"/></svg>
-          ダッシュボードにもどる
-        </a>
-        <h1 class="mt-4 font-heading text-2xl font-bold text-foreground md:text-3xl">ワークショップを作る</h1>
-        <p class="mt-2 text-sm text-muted-foreground">入力はあとから変更できます。気軽に下書きしてみましょう。</p>
+  <header class="topbar">
+    <a href="index.html" class="brand">Fleri</a>
+    <nav class="dnav"><a href="workshops.html">さがす</a><a href="workshops.html">カテゴリ</a><a href="for-instructors.html">教える人へ</a></nav>
+    <div class="ta">
+      <span class="icbtn" aria-hidden="true"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.5 21a2 2 0 0 1-3 0"/></svg></span>
+    </div>
+  </header>
 
-        <form class="mt-8 space-y-5" onsubmit="event.preventDefault(); window.location.href='instructor-dashboard.html';">
-          <!-- 基本情報 -->
-          <section class="rounded-3xl border border-border bg-card p-6">
-            <h2 class="font-heading text-lg font-bold text-foreground">基本情報</h2>
-            <div class="mt-4 space-y-4">
-              <div>
-                <label for="ws-title" class="text-sm font-medium text-foreground">タイトル</label>
-                <input id="ws-title" type="text" placeholder="例：季節の花で作る、小さなスワッグ" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
-              </div>
-              <div>
-                <label for="ws-desc" class="text-sm font-medium text-foreground">紹介文</label>
-                <textarea id="ws-desc" rows="3" placeholder="どんな時間になるか、初めての方にも伝わるように書いてみましょう。" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"></textarea>
-              </div>
-              <div>
-                <label class="text-sm font-medium text-foreground">カテゴリ（最大2つ）</label>
-                <div class="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-3" id="catgrid">
-                  <button type="button" class="cat rounded-2xl border border-border bg-background px-3 py-2.5 text-sm text-foreground transition-colors hover:border-primary">美容・スキンケア</button>
-                  <button type="button" class="cat rounded-2xl border border-border bg-background px-3 py-2.5 text-sm text-foreground transition-colors hover:border-primary">手芸・クラフト</button>
-                  <button type="button" class="cat rounded-2xl border border-border bg-background px-3 py-2.5 text-sm text-foreground transition-colors hover:border-primary">フラワー</button>
-                  <button type="button" class="cat rounded-2xl border border-border bg-background px-3 py-2.5 text-sm text-foreground transition-colors hover:border-primary">料理・食</button>
-                  <button type="button" class="cat rounded-2xl border border-border bg-background px-3 py-2.5 text-sm text-foreground transition-colors hover:border-primary">アロマ・キャンドル</button>
-                  <button type="button" class="cat rounded-2xl border border-border bg-background px-3 py-2.5 text-sm text-foreground transition-colors hover:border-primary">暮らしの知恵</button>
-                </div>
-              </div>
-            </div>
-          </section>
+  <div class="form" style="padding-top:20px">
+    <a href="instructor-dashboard.html" class="back"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>ダッシュボードにもどる</a>
+    <h1 class="h1" style="margin-top:14px">ワークショップを作る</h1>
+    <p class="sub">入力はあとから変更できます。気軽に下書きしてみましょう。</p>
 
-          <!-- 日時・定員 -->
-          <section class="rounded-3xl border border-border bg-card p-6">
-            <h2 class="font-heading text-lg font-bold text-foreground">日時・定員</h2>
-            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label for="ws-date" class="text-sm font-medium text-foreground">開催日</label>
-                <input id="ws-date" type="date" value="2026-06-29" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
-              </div>
-              <div>
-                <label for="ws-time" class="text-sm font-medium text-foreground">開始時刻</label>
-                <input id="ws-time" type="time" value="14:00" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
-              </div>
-              <div>
-                <label for="ws-duration" class="text-sm font-medium text-foreground">配信時間</label>
-                <select id="ws-duration" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
-                  <option>60分</option><option selected>90分</option>
-                </select>
-                <p class="mt-1.5 text-xs text-muted-foreground">1回の配信は90分までです。</p>
-              </div>
-              <div>
-                <label for="ws-capacity" class="text-sm font-medium text-foreground">定員</label>
-                <select id="ws-capacity" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
-                  <option>5名</option><option>8名</option><option selected>10名</option>
-                </select>
-                <p class="mt-1.5 text-xs text-muted-foreground">定員は10名までです。</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- 参加費 -->
-          <section class="rounded-3xl border border-border bg-card p-6">
-            <h2 class="font-heading text-lg font-bold text-foreground">参加費</h2>
-            <div class="mt-4">
-              <div class="flex items-center gap-2">
-                <span class="text-lg text-muted-foreground">¥</span>
-                <input id="price" type="number" value="2800" min="1500" step="100" class="w-40 rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
-                <span class="text-sm text-muted-foreground">／ おひとり</span>
-              </div>
-              <p id="pricehint" class="mt-2 text-xs text-muted-foreground">手取りを守るため、参加費は<span class="text-foreground font-medium">1,500円から</span>設定できます。参加費には別途、決済手数料3.6%（約101円）がかかります。</p>
-              <div class="mt-4 rounded-2xl bg-muted/60 p-4 text-sm">
-                <div class="flex justify-between text-muted-foreground"><span>参加費（10名満席のとき）</span><span class="text-foreground">¥28,000</span></div>
-                <div class="flex justify-between text-muted-foreground"><span>決済手数料 3.6%</span><span class="text-foreground">−¥1,008</span></div>
-                <div class="flex justify-between text-muted-foreground"><span>Fleri利用料（サブスク枠内）</span><span class="text-foreground">¥0</span></div>
-                <div class="mt-2 flex justify-between border-t border-border pt-2 font-medium"><span class="text-foreground">目安の手取り</span><span class="text-primary">¥26,992</span></div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 任意設定 -->
-          <section class="rounded-3xl border border-border bg-card p-6">
-            <h2 class="font-heading text-lg font-bold text-foreground">キット・キャンセル（任意）</h2>
-            <div class="mt-4 space-y-4">
-              <div>
-                <label for="ws-kit" class="text-sm font-medium text-foreground">キット申込の締め切り</label>
-                <input id="ws-kit" type="date" value="2026-06-25" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
-                <p class="mt-1.5 text-xs text-muted-foreground">材料を事前発送する場合に設定します。</p>
-              </div>
-              <div>
-                <label for="ws-cancel" class="text-sm font-medium text-foreground">キャンセルポリシー</label>
-                <select id="ws-cancel" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
-                  <option>3日前まで無料・以降50%</option>
-                  <option>前日まで無料・当日100%</option>
-                  <option>いつでも無料</option>
-                </select>
-              </div>
-            </div>
-          </section>
-
-          <!-- 公開時のLINE通知 -->
-          <label class="flex items-start gap-3 rounded-3xl border border-border bg-secondary/10 p-5">
-            <input type="checkbox" checked class="mt-1 h-5 w-5 shrink-0 accent-[#8FA68E]" />
-            <span class="text-sm leading-relaxed text-foreground/80"><span class="font-medium text-secondary-foreground">公開時に、128人のファンへLINEでお知らせする</span><br />まとめて送るので、ファンに負担をかけません。配信停止を希望した方には届きません。</span>
-          </label>
-
-          <div class="flex flex-col gap-3 sm:flex-row">
-            <button type="button" onclick="window.location.href='instructor-dashboard.html'" class="flex-1 rounded-full border border-border px-6 py-4 text-base font-medium text-foreground transition-colors hover:bg-muted">下書き保存</button>
-            <button type="submit" class="flex-1 rounded-full bg-primary px-6 py-4 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">公開する</button>
+    <form style="margin-top:24px" onsubmit="event.preventDefault(); window.location.href='instructor-dashboard.html';">
+      <div class="panel">
+        <h2 style="font-family:var(--head);font-weight:700;font-size:18px">基本情報</h2>
+        <div class="field"><label for="ws-title">タイトル</label><input id="ws-title" class="input" type="text" placeholder="例：季節の花で作る、小さなスワッグ" /></div>
+        <div class="field"><label for="ws-desc">紹介文</label><textarea id="ws-desc" class="input" rows="3" placeholder="どんな時間になるか、初めての方にも伝わるように書いてみましょう。"></textarea></div>
+        <div class="field"><label>カテゴリ（最大2つ）</label>
+          <div class="catgrid" id="catgrid">
+            <button type="button" class="catbtn">美容・スキンケア</button>
+            <button type="button" class="catbtn">手芸・クラフト</button>
+            <button type="button" class="catbtn">フラワー</button>
+            <button type="button" class="catbtn">料理・食</button>
+            <button type="button" class="catbtn">アロマ・キャンドル</button>
+            <button type="button" class="catbtn">暮らしの知恵</button>
           </div>
-        </form>
+        </div>
       </div>
-    </main>
 
-    <div id="site-footer"></div>
+      <div class="panel" style="margin-top:18px">
+        <h2 style="font-family:var(--head);font-weight:700;font-size:18px">日時・定員</h2>
+        <div class="two">
+          <div class="field"><label for="ws-date">開催日</label><input id="ws-date" class="input" type="date" value="2026-06-29" /></div>
+          <div class="field"><label for="ws-time">開始時刻</label><input id="ws-time" class="input" type="time" value="14:00" /></div>
+          <div class="field"><label for="ws-dur">配信時間</label><select id="ws-dur" class="input"><option>60分</option><option selected>90分</option></select><p class="sub" style="font-size:12px;margin-top:6px">1回の配信は90分までです。</p></div>
+          <div class="field"><label for="ws-cap">定員</label><select id="ws-cap" class="input"><option>5名</option><option>8名</option><option selected>10名</option></select><p class="sub" style="font-size:12px;margin-top:6px">定員は10名までです。</p></div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px">
+        <h2 style="font-family:var(--head);font-weight:700;font-size:18px">参加費</h2>
+        <div class="field" style="margin-top:14px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:18px;color:var(--muted)">¥</span>
+            <input id="price" class="input" type="number" value="2800" min="1500" step="100" style="width:160px" />
+            <span class="sub">／ おひとり</span>
+          </div>
+          <p id="pricehint" class="sub" style="font-size:12px;margin-top:8px">手取りを守るため、参加費は<b>1,500円から</b>設定できます。参加費には別途、決済手数料3.6%（約101円）がかかります。</p>
+          <div class="calc">
+            <div class="r"><span>参加費（10名満席のとき）</span><b>¥28,000</b></div>
+            <div class="r"><span>決済手数料 3.6%</span><b>−¥1,008</b></div>
+            <div class="r"><span>Fleri利用料（サブスク枠内）</span><b>¥0</b></div>
+            <div class="tot"><span>目安の手取り</span><span style="color:var(--primary)">¥26,992</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px">
+        <h2 style="font-family:var(--head);font-weight:700;font-size:18px">キット・キャンセル（任意）</h2>
+        <div class="field"><label for="ws-kit">キット申込の締め切り</label><input id="ws-kit" class="input" type="date" value="2026-06-25" /><p class="sub" style="font-size:12px;margin-top:6px">材料を事前発送する場合に設定します。</p></div>
+        <div class="field"><label for="ws-cancel">キャンセルポリシー</label><select id="ws-cancel" class="input"><option>3日前まで無料・以降50%</option><option>前日まで無料・当日100%</option><option>いつでも無料</option></select></div>
+      </div>
+
+      <label class="chk">
+        <input type="checkbox" checked />
+        <span style="font-size:14px;line-height:1.6;color:var(--ink)"><b style="color:var(--deep)">公開時に、128人のファンへLINEでお知らせする</b><br />まとめて送るので、ファンに負担をかけません。配信停止を希望した方には届きません。</span>
+      </label>
+
+      <div class="two" style="margin-top:18px">
+        <button type="button" onclick="window.location.href='instructor-dashboard.html'" class="btn btn-outline btn-block">下書き保存</button>
+        <button type="submit" class="btn btn-primary btn-block">公開する</button>
+      </div>
+    </form>
   </div>
-  <script src="assets/fleri.js"></script>
-  <script>
-    // カテゴリ最大2つ
-    const on = "border-primary bg-primary/10 text-primary font-medium".split(" ");
-    document.querySelectorAll("#catgrid .cat").forEach((b) => b.addEventListener("click", () => {
-      if (!b.classList.contains("is-on") && document.querySelectorAll("#catgrid .cat.is-on").length >= 2) return;
-      b.classList.toggle("is-on");
-      on.forEach((c) => b.classList.toggle(c, b.classList.contains("is-on")));
-    }));
-    // 参加費の最低額バリデーション
-    const price = document.getElementById("price");
-    const hint = document.getElementById("pricehint");
-    price.addEventListener("input", () => {
-      if (Number(price.value) < 1500) { hint.classList.add("text-primary"); hint.classList.remove("text-muted-foreground");
-        hint.innerHTML = "参加費は1,500円以上で設定してください。"; }
-      else { hint.classList.remove("text-primary"); hint.classList.add("text-muted-foreground");
-        hint.innerHTML = '手取りを守るため、参加費は<span class="text-foreground font-medium">1,500円から</span>設定できます。参加費には別途、決済手数料3.6%がかかります。'; }
-    });
-  </script>
+
+  <div class="spacer"></div>
+
+  <nav class="tabbar">
+    <a class="tab" href="index.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/></svg>ホーム</a>
+    <a class="tab" href="workshops.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>さがす</a>
+    <a class="tab" href="instructor-workshop-new.html"><span class="plus"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></a>
+    <a class="tab" href="#"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.5 21a2 2 0 0 1-3 0"/></svg>通知</a>
+    <a class="tab on" href="instructor-dashboard.html"><svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>マイ</a>
+  </nav>
+
+</div>
+<script>
+  document.querySelectorAll("#catgrid .catbtn").forEach(b=>b.addEventListener("click",()=>{
+    if(!b.classList.contains("is-on") && document.querySelectorAll("#catgrid .catbtn.is-on").length>=2) return;
+    b.classList.toggle("is-on");
+  }));
+  const price=document.getElementById("price"), hint=document.getElementById("pricehint");
+  price.addEventListener("input",()=>{
+    if(Number(price.value)<1500){ hint.style.color="var(--primary)"; hint.innerHTML="参加費は1,500円以上で設定してください。"; }
+    else { hint.style.color=""; hint.innerHTML='手取りを守るため、参加費は<b>1,500円から</b>設定できます。参加費には別途、決済手数料3.6%がかかります。'; }
+  });
+</script>
 </body>
 </html>
