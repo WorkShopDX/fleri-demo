@@ -52,12 +52,12 @@
               <div id="mode-email" class="mt-4 hidden">
                 <div class="space-y-4">
                   <div>
-                    <label class="text-sm font-medium text-foreground">お名前</label>
-                    <input type="text" placeholder="例：花山 さくら" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                    <label for="co-name" class="text-sm font-medium text-foreground">お名前</label>
+                    <input id="co-name" type="text" placeholder="例：花山 さくら" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
                   </div>
                   <div>
-                    <label class="text-sm font-medium text-foreground">メールアドレス</label>
-                    <input type="email" placeholder="you@example.com" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                    <label for="co-email" class="text-sm font-medium text-foreground">メールアドレス</label>
+                    <input id="co-email" type="email" placeholder="you@example.com" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
                     <p class="mt-1.5 text-xs text-muted-foreground">予約確認とお支払いの控えをお送りします。</p>
                   </div>
                 </div>
@@ -69,8 +69,8 @@
 
               <!-- 参加人数（共通） -->
               <div class="mt-5 border-t border-border pt-5">
-                <label class="text-sm font-medium text-foreground">参加人数</label>
-                <select class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
+                <label for="co-count" class="text-sm font-medium text-foreground">参加人数</label>
+                <select id="co-count" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
                   <option>1名</option><option>2名</option><option>3名</option>
                 </select>
               </div>
@@ -87,17 +87,17 @@
               </div>
               <div class="mt-4 space-y-4">
                 <div>
-                  <label class="text-sm font-medium text-foreground">カード番号</label>
-                  <input type="text" value="4242 4242 4242 4242" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                  <label for="co-card" class="text-sm font-medium text-foreground">カード番号</label>
+                  <input id="co-card" type="text" value="4242 4242 4242 4242" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                   <div>
-                    <label class="text-sm font-medium text-foreground">有効期限</label>
-                    <input type="text" value="12 / 28" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                    <label for="co-exp" class="text-sm font-medium text-foreground">有効期限</label>
+                    <input id="co-exp" type="text" value="12 / 28" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
                   </div>
                   <div>
-                    <label class="text-sm font-medium text-foreground">セキュリティコード</label>
-                    <input type="text" value="123" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                    <label for="co-cvc" class="text-sm font-medium text-foreground">セキュリティコード</label>
+                    <input id="co-cvc" type="text" value="123" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
                   </div>
                 </div>
               </div>

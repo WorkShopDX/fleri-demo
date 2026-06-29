@@ -30,12 +30,12 @@
             <h2 class="font-heading text-lg font-bold text-foreground">基本情報</h2>
             <div class="mt-4 space-y-4">
               <div>
-                <label class="text-sm font-medium text-foreground">タイトル</label>
-                <input type="text" placeholder="例：季節の花で作る、小さなスワッグ" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                <label for="ws-title" class="text-sm font-medium text-foreground">タイトル</label>
+                <input id="ws-title" type="text" placeholder="例：季節の花で作る、小さなスワッグ" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
               </div>
               <div>
-                <label class="text-sm font-medium text-foreground">紹介文</label>
-                <textarea rows="3" placeholder="どんな時間になるか、初めての方にも伝わるように書いてみましょう。" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"></textarea>
+                <label for="ws-desc" class="text-sm font-medium text-foreground">紹介文</label>
+                <textarea id="ws-desc" rows="3" placeholder="どんな時間になるか、初めての方にも伝わるように書いてみましょう。" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary"></textarea>
               </div>
               <div>
                 <label class="text-sm font-medium text-foreground">カテゴリ（最大2つ）</label>
@@ -56,23 +56,23 @@
             <h2 class="font-heading text-lg font-bold text-foreground">日時・定員</h2>
             <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label class="text-sm font-medium text-foreground">開催日</label>
-                <input type="date" value="2026-06-29" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                <label for="ws-date" class="text-sm font-medium text-foreground">開催日</label>
+                <input id="ws-date" type="date" value="2026-06-29" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
               </div>
               <div>
-                <label class="text-sm font-medium text-foreground">開始時刻</label>
-                <input type="time" value="14:00" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                <label for="ws-time" class="text-sm font-medium text-foreground">開始時刻</label>
+                <input id="ws-time" type="time" value="14:00" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
               </div>
               <div>
-                <label class="text-sm font-medium text-foreground">配信時間</label>
-                <select class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
+                <label for="ws-duration" class="text-sm font-medium text-foreground">配信時間</label>
+                <select id="ws-duration" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
                   <option>60分</option><option selected>90分</option>
                 </select>
                 <p class="mt-1.5 text-xs text-muted-foreground">1回の配信は90分までです。</p>
               </div>
               <div>
-                <label class="text-sm font-medium text-foreground">定員</label>
-                <select class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
+                <label for="ws-capacity" class="text-sm font-medium text-foreground">定員</label>
+                <select id="ws-capacity" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
                   <option>5名</option><option>8名</option><option selected>10名</option>
                 </select>
                 <p class="mt-1.5 text-xs text-muted-foreground">定員は10名までです。</p>
@@ -104,13 +104,13 @@
             <h2 class="font-heading text-lg font-bold text-foreground">キット・キャンセル（任意）</h2>
             <div class="mt-4 space-y-4">
               <div>
-                <label class="text-sm font-medium text-foreground">キット申込の締め切り</label>
-                <input type="date" value="2026-06-25" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
+                <label for="ws-kit" class="text-sm font-medium text-foreground">キット申込の締め切り</label>
+                <input id="ws-kit" type="date" value="2026-06-25" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary" />
                 <p class="mt-1.5 text-xs text-muted-foreground">材料を事前発送する場合に設定します。</p>
               </div>
               <div>
-                <label class="text-sm font-medium text-foreground">キャンセルポリシー</label>
-                <select class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
+                <label for="ws-cancel" class="text-sm font-medium text-foreground">キャンセルポリシー</label>
+                <select id="ws-cancel" class="mt-1.5 w-full rounded-2xl border border-border bg-background px-4 py-3 text-base outline-none focus:border-primary">
                   <option>3日前まで無料・以降50%</option>
                   <option>前日まで無料・当日100%</option>
                   <option>いつでも無料</option>
