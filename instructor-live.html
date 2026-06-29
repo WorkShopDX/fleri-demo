@@ -35,15 +35,27 @@
           </div>
         </div>
 
-        <!-- 参加者タイル -->
-        <div class="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-7">
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">あおい</div>
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">まり</div>
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">ゆうこ</div>
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">けい</div>
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">なな</div>
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">ほのか</div>
-          <div class="flex aspect-square items-center justify-center rounded-xl border border-white/15 bg-black/30 text-xs text-white/70">みき</div>
+        <!-- 参加者（ログイン済みはサムネ／未ログインは頭文字。カメラは既定オフ） -->
+        <div class="mt-4 flex items-center gap-3">
+          <div class="flex -space-x-2">
+            <img src="images/ws-flower.png" alt="あおいさん" class="h-9 w-9 rounded-full border-2 border-[#2A2622] object-cover" />
+            <span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#2A2622] bg-secondary/40 text-xs font-bold text-white">ま</span>
+            <img src="images/ws-craft.png" alt="ゆうこさん" class="h-9 w-9 rounded-full border-2 border-[#2A2622] object-cover" />
+            <span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#2A2622] bg-accent/40 text-xs font-bold text-white">け</span>
+            <span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#2A2622] bg-secondary/40 text-xs font-bold text-white">な</span>
+            <span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#2A2622] bg-white/15 text-xs font-medium text-white/80">+2</span>
+          </div>
+          <span class="text-sm text-white/70">7名 参加中</span>
+        </div>
+
+        <!-- 参加者から届いた手元の写真（あなたにだけ表示） -->
+        <div class="mt-3 flex items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-3">
+          <img src="images/ws-craft.png" alt="さきさんの手元の写真" class="h-14 w-14 shrink-0 rounded-xl object-cover" />
+          <div class="min-w-0 flex-1">
+            <p class="text-sm"><span class="font-medium">さきさん</span>が手元の写真を送りました</p>
+            <p class="text-xs text-white/55">あなたにだけ表示されています</p>
+          </div>
+          <button class="shrink-0 rounded-full bg-primary px-3 py-2 text-xs font-medium text-primary-foreground transition hover:scale-[1.02]">みんなにも紹介</button>
         </div>
 
         <!-- コントロール -->
