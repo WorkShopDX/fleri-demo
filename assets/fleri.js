@@ -70,6 +70,12 @@
     if (el) el.outerHTML = html;
   }
 
+  // キーボード操作時のフォーカス可視化（全インタラクティブ要素・全ページ共通）
+  const focusStyle = document.createElement("style");
+  focusStyle.textContent =
+    "a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #A05868;outline-offset:2px;border-radius:8px}";
+  document.head.appendChild(focusStyle);
+
   document.addEventListener("DOMContentLoaded", function () {
     mount("site-header", headerHTML);
     mount("site-footer", footerHTML);
@@ -82,5 +88,6 @@
     if (open) open.addEventListener("click", () => toggle(true));
     if (closeBtn) closeBtn.addEventListener("click", () => toggle(false));
     if (closeBg) closeBg.addEventListener("click", () => toggle(false));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") toggle(false); });
   });
 })();

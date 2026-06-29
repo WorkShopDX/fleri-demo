@@ -9,8 +9,8 @@ tailwind.config = {
         foreground: "#463F3A",
         card: { DEFAULT: "#FCFBF8", foreground: "#463F3A" },
         primary: { DEFAULT: "#A05868", foreground: "#FDFBF7" },   /* くすみピンク（濃） */
-        secondary: { DEFAULT: "#8FA68E", foreground: "#36422F" }, /* セージグリーン */
-        muted: { DEFAULT: "#ECE8E2", foreground: "#82766B" },
+        secondary: { DEFAULT: "#8FA68E", foreground: "#2C3620" }, /* セージグリーン（前景は緑塗り上でAA達成へ深色化・旧#36422F≒4.0:1→約4.8:1） */
+        muted: { DEFAULT: "#ECE8E2", foreground: "#6F665A" }, /* AA達成へ暗色化（旧#82766B≒4.1:1→約5.3:1） */
         accent: { DEFAULT: "#D4A5A0", foreground: "#4A3A36" },    /* くすみピンク（淡） */
         border: "#E4DED6",
       },
