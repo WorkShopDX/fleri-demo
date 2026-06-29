@@ -1,24 +1,26 @@
 /* Fleri デザインシステム — Tailwind（Play CDN）共通設定
-   globals.css の OKLCH トークンを hex 近似に変換。
-   オフホワイト × くすみピンク × セージグリーン */
+   2026-06-30 リブランド反映：モダン×ボタニカル／メインカラー ティール #5C9596
+   フォントは Noto Sans JP に統一（丸ゴシック廃止） */
 tailwind.config = {
   theme: {
     extend: {
       colors: {
-        background: "#FAF7F2",            /* オフホワイト */
-        foreground: "#463F3A",
-        card: { DEFAULT: "#FCFBF8", foreground: "#463F3A" },
-        primary: { DEFAULT: "#A05868", foreground: "#FDFBF7" },   /* くすみピンク（濃） */
-        secondary: { DEFAULT: "#8FA68E", foreground: "#2C3620" }, /* セージグリーン（前景は緑塗り上でAA達成へ深色化・旧#36422F≒4.0:1→約4.8:1） */
-        muted: { DEFAULT: "#ECE8E2", foreground: "#6F665A" }, /* AA達成へ暗色化（旧#82766B≒4.1:1→約5.3:1） */
-        accent: { DEFAULT: "#D4A5A0", foreground: "#4A3A36" },    /* くすみピンク（淡） */
-        border: "#E4DED6",
+        background: "#F7F6F2",            /* 温かいオフホワイト */
+        foreground: "#23211C",            /* インク（本文） */
+        card: { DEFAULT: "#FFFFFF", foreground: "#23211C" },
+        primary: { DEFAULT: "#5C9596", foreground: "#FFFFFF" },   /* ティール（メイン） */
+        secondary: { DEFAULT: "#7FB0AE", foreground: "#1F4140" }, /* ソフトティール（タグ/アバター地） */
+        muted: { DEFAULT: "#EFEDE7", foreground: "#6B6760" },
+        accent: { DEFAULT: "#5C9596", foreground: "#2F6566" },    /* アイコン地に /25 で使用 */
+        border: "#E6E3DC",
+        deep: "#2F6566",                  /* 濃ティール（小さい文字・リンク・アクティブ＝AA確保） */
+        soft: "#E6F0F0",                  /* 淡ティール面 */
       },
       fontFamily: {
-        heading: ['"Zen Maru Gothic"', '"Noto Sans JP"', "sans-serif"],
+        heading: ['"Noto Sans JP"', "sans-serif"],
         sans: ['"Noto Sans JP"', "sans-serif"],
       },
-      borderRadius: { "2xl": "1.25rem", "3xl": "1.5rem", "4xl": "2rem" },
+      borderRadius: { xl: "0.875rem", "2xl": "1.25rem", "3xl": "1.5rem", "4xl": "2rem" },
     },
   },
 };
