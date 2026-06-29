@@ -33,6 +33,18 @@
           </div>
           <!-- 自分の小窓 -->
           <div class="absolute right-3 top-3 flex h-20 w-28 items-center justify-center rounded-2xl border border-white/20 bg-black/40 text-xs text-white/70">あなた</div>
+
+          <!-- 先生が作品を紹介中（全員に表示される） -->
+          <div id="spotlight" class="absolute inset-0 z-10 hidden flex-col bg-black/80 p-3">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
+                <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-3.5 w-3.5"><path d="M12 3l2.3 4.7 5.2.8-3.8 3.6.9 5.1L12 14.8 7.4 17.2l.9-5.1L4.5 8.5l5.2-.8z"/></svg>
+                さきさんの作品を先生が紹介中
+              </span>
+              <button onclick="hideSpotlight()" class="rounded-full bg-white/15 px-3 py-1 text-xs text-white/80 hover:bg-white/25">閉じる</button>
+            </div>
+            <img src="images/ws-craft.png" alt="さきさんの作品" class="mt-2 w-full flex-1 rounded-2xl object-cover" />
+          </div>
         </div>
 
         <!-- 一緒に参加している人（ログイン済みはサムネ画像／未ログインは頭文字を表示） -->
@@ -121,5 +133,12 @@
     </div>
   </div>
   <script src="assets/fleri.js"></script>
+  <script>
+    // 先生の「みんなにも紹介」を受けて、全員の画面に作品を表示（同一ブラウザの別タブと連動）
+    function showSpotlight() { const el = document.getElementById("spotlight"); el.classList.remove("hidden"); el.classList.add("flex"); }
+    function hideSpotlight() { const el = document.getElementById("spotlight"); el.classList.add("hidden"); el.classList.remove("flex"); }
+    window.addEventListener("storage", (e) => { if (e.key === "fleri_spotlight") { e.newValue === "on" ? showSpotlight() : hideSpotlight(); } });
+    if (location.hash === "#spotlight" || localStorage.getItem("fleri_spotlight") === "on") showSpotlight();
+  </script>
 </body>
 </html>

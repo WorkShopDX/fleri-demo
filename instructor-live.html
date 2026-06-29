@@ -55,7 +55,7 @@
             <p class="text-sm"><span class="font-medium">さきさん</span>が手元の写真を送りました</p>
             <p class="text-xs text-white/55">あなたにだけ表示されています</p>
           </div>
-          <button class="shrink-0 rounded-full bg-primary px-3 py-2 text-xs font-medium text-primary-foreground transition hover:scale-[1.02]">みんなにも紹介</button>
+          <button id="introBtn" onclick="toggleIntro()" class="shrink-0 rounded-full bg-primary px-3 py-2 text-xs font-medium text-primary-foreground transition hover:scale-[1.02]">みんなにも紹介</button>
         </div>
 
         <!-- コントロール -->
@@ -95,5 +95,14 @@
     </div>
   </div>
   <script src="assets/fleri.js"></script>
+  <script>
+    // 「みんなにも紹介」⇔「紹介を終了」。参加者画面（別タブ）に作品の表示/非表示を伝える
+    function toggleIntro() {
+      const on = localStorage.getItem("fleri_spotlight") !== "on";
+      localStorage.setItem("fleri_spotlight", on ? "on" : "off");
+      const b = document.getElementById("introBtn");
+      if (b) b.textContent = on ? "紹介を終了" : "みんなにも紹介";
+    }
+  </script>
 </body>
 </html>
