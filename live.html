@@ -39,11 +39,11 @@
             <div class="flex items-center justify-between">
               <span class="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
                 <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-3.5 w-3.5"><path d="M12 3l2.3 4.7 5.2.8-3.8 3.6.9 5.1L12 14.8 7.4 17.2l.9-5.1L4.5 8.5l5.2-.8z"/></svg>
-                さきさんの作品を先生が紹介中
+                あなたの作品をみんなが見ています
               </span>
               <button onclick="hideSpotlight()" class="rounded-full bg-white/15 px-3 py-1 text-xs text-white/80 hover:bg-white/25">閉じる</button>
             </div>
-            <img src="images/ws-craft.png" alt="さきさんの作品" class="mt-2 w-full flex-1 rounded-2xl object-cover" />
+            <img src="images/ws-craft.png" alt="あなたの作品" class="mt-2 w-full flex-1 rounded-2xl object-cover" />
           </div>
         </div>
 
@@ -65,9 +65,6 @@
           <button class="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/55 transition hover:bg-white/20" aria-label="マイクをオンにする（今はオフ）">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/><path d="M4 3l16 18"/></svg>
           </button>
-          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/55 transition hover:bg-white/20" aria-label="カメラをオンにする（今はオフ）">
-            <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-6 w-6"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/><path d="M4 3l16 18"/></svg>
-          </button>
           <button onclick="document.getElementById('photomodal').classList.remove('hidden')" class="flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground transition hover:scale-[1.02]">
             <svg fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" class="h-5 w-5"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2h5L16 7"/></svg>
             写真で見てもらう
@@ -77,7 +74,7 @@
           </button>
           <button onclick="document.getElementById('survey').classList.remove('hidden')" class="rounded-full bg-white/10 px-4 py-3 text-sm text-white/80 transition hover:bg-white/20">退出</button>
         </div>
-        <p class="mt-2 text-center text-xs text-white/50">カメラとマイクは最初はオフです。手元は「写真で見てもらう」で先生にだけ送れます。</p>
+        <p class="mt-2 text-center text-xs text-white/50">マイクは最初はオフです。話したい時だけオンに。手元は「写真で見てもらう」で先生にだけ送れます。</p>
       </main>
 
       <!-- チャット -->
@@ -117,6 +114,19 @@
     </div>
   </div>
 
+  <!-- 先生からの紹介リクエスト（本人の同意） -->
+  <div id="consentmodal" class="fixed inset-0 z-50 hidden bg-black/60 p-5">
+    <div class="mx-auto mt-[14vh] max-w-sm rounded-3xl bg-background p-6 text-foreground">
+      <p class="text-sm font-medium text-primary">先生からのお願い</p>
+      <h2 class="mt-1 font-heading text-xl font-bold">あなたの作品を、みんなにも見せてもいいですか？</h2>
+      <p class="mt-2 text-sm text-muted-foreground">先生があなたの手元の写真を、クラスのみんなに紹介したいそうです。いやな場合は「今はやめておく」を選んでください。</p>
+      <div class="mt-5 flex flex-col gap-3">
+        <button onclick="agreeShare()" class="rounded-full bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground transition-transform hover:scale-[1.02]">みんなに見せる</button>
+        <button onclick="declineShare()" class="text-center text-sm text-muted-foreground underline-offset-4 hover:underline">今はやめておく</button>
+      </div>
+    </div>
+  </div>
+
   <!-- 配信終了後アンケート（ファン化ループ） -->
   <div id="survey" class="fixed inset-0 z-50 hidden bg-black/60 p-5">
     <div class="mx-auto mt-[12vh] max-w-md rounded-3xl bg-background p-7 text-foreground">
@@ -134,11 +144,22 @@
   </div>
   <script src="assets/fleri.js"></script>
   <script>
-    // 先生の「みんなにも紹介」を受けて、全員の画面に作品を表示（同一ブラウザの別タブと連動）
+    // 先生の「みんなにも紹介」→ 本人に同意確認 → 同意したら全員に表示（同一ブラウザの別タブと連動）
     function showSpotlight() { const el = document.getElementById("spotlight"); el.classList.remove("hidden"); el.classList.add("flex"); }
     function hideSpotlight() { const el = document.getElementById("spotlight"); el.classList.add("hidden"); el.classList.remove("flex"); }
-    window.addEventListener("storage", (e) => { if (e.key === "fleri_spotlight") { e.newValue === "on" ? showSpotlight() : hideSpotlight(); } });
-    if (location.hash === "#spotlight" || localStorage.getItem("fleri_spotlight") === "on") showSpotlight();
+    function showConsent() { document.getElementById("consentmodal").classList.remove("hidden"); }
+    function hideConsent() { document.getElementById("consentmodal").classList.add("hidden"); }
+    function agreeShare() { hideConsent(); localStorage.setItem("fleri_spotlight", "on"); showSpotlight(); }
+    function declineShare() { hideConsent(); localStorage.setItem("fleri_spotlight", "off"); }
+    function applyState(v) {
+      if (v === "pending") { hideSpotlight(); showConsent(); }
+      else if (v === "on") { hideConsent(); showSpotlight(); }
+      else { hideConsent(); hideSpotlight(); }
+    }
+    window.addEventListener("storage", (e) => { if (e.key === "fleri_spotlight") applyState(e.newValue); });
+    if (location.hash === "#consent") showConsent();
+    else if (location.hash === "#spotlight") showSpotlight();
+    else applyState(localStorage.getItem("fleri_spotlight"));
   </script>
 </body>
 </html>
