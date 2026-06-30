@@ -15,7 +15,9 @@
     .catbtn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:10px;font-size:14px;color:var(--ink);cursor:pointer;font-family:var(--body)}
     .catbtn.is-on{border-color:var(--primary);background:var(--soft);color:var(--deep);font-weight:600}
     .two{display:grid;grid-template-columns:1fr;gap:14px}
+    .two>*{min-width:0}
     @media(min-width:600px){.two{grid-template-columns:1fr 1fr}}
+    input[type="date"],input[type="time"]{max-width:100%}
     .calc{background:var(--soft);border-radius:14px;padding:14px;margin-top:14px;font-size:14px}
     .calc .r{display:flex;justify-content:space-between;color:var(--muted)}
     .calc .r b{color:var(--ink);font-weight:600}
