@@ -10,15 +10,17 @@
   <link rel="stylesheet" href="assets/fleri.css" />
   <style>
     .form{max-width:680px;margin:0 auto;padding:0 20px}
-    .stepper{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;margin-top:20px;flex-wrap:wrap}
-    .stp{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:var(--muted-bg,#F0EEE8);color:var(--muted)}
+    /* ステッパーは折り返さず1行に収める。さらに省スペース化（320px幅でも1行）。
+       ピルは自然幅・縮まない／ラベルは折り返さない／連結線が伸縮して隙間を埋める */
+    .stepper{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;margin-top:20px;flex-wrap:nowrap}
+    .stp{display:flex;align-items:center;gap:4px;padding:4px 9px;border-radius:999px;background:var(--muted-bg,#F0EEE8);color:var(--muted);white-space:nowrap;flex:0 0 auto}
     .stp.on{background:var(--primary);color:#fff}
-    .stp .n{width:18px;height:18px;border-radius:999px;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:11px}
+    .stp .n{width:15px;height:15px;border-radius:999px;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:9px;flex:0 0 auto}
     .stp.off .n{background:rgba(0,0,0,.08)}
-    .line{flex:1;height:1px;background:var(--border);min-width:14px}
-    .catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
-    @media(min-width:600px){.catgrid{grid-template-columns:repeat(3,1fr)}}
-    .catbtn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:12px;font-size:14px;color:var(--ink);cursor:pointer;font-family:var(--body)}
+    .line{flex:1 1 0;height:1px;background:var(--border);min-width:5px}
+    .catgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+    @media(min-width:600px){.catgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .catbtn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:11px 8px;font-size:13px;color:var(--ink);cursor:pointer;font-family:var(--body);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .catbtn.is-on{border-color:var(--primary);background:var(--soft);color:var(--deep);font-weight:600}
   </style>
 </head>

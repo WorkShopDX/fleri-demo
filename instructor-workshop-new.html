@@ -10,14 +10,17 @@
   <link rel="stylesheet" href="assets/fleri.css" />
   <style>
     .form{max-width:680px;margin:0 auto;padding:0 20px}
-    .catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
-    @media(min-width:600px){.catgrid{grid-template-columns:repeat(3,1fr)}}
-    .catbtn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:10px;font-size:14px;color:var(--ink);cursor:pointer;font-family:var(--body)}
+    .catgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+    @media(min-width:600px){.catgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .catbtn{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:10px 8px;font-size:13px;color:var(--ink);cursor:pointer;font-family:var(--body);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .catbtn.is-on{border-color:var(--primary);background:var(--soft);color:var(--deep);font-weight:600}
     .two{display:grid;grid-template-columns:1fr;gap:14px}
     .two>*{min-width:0}
-    @media(min-width:600px){.two{grid-template-columns:1fr 1fr}}
-    input[type="date"],input[type="time"]{max-width:100%}
+    @media(min-width:600px){.two{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    /* iOS Safari等でネイティブ日付/時刻入力が固有幅を持ち箱からはみ出るのを防ぐ */
+    input[type="date"],input[type="time"]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-height:46px}
+    input[type="date"]::-webkit-date-and-time-value{text-align:left}
+    input[type="date"]::-webkit-calendar-picker-indicator,input[type="time"]::-webkit-calendar-picker-indicator{margin-left:auto}
     .calc{background:var(--soft);border-radius:14px;padding:14px;margin-top:14px;font-size:14px}
     .calc .r{display:flex;justify-content:space-between;color:var(--muted)}
     .calc .r b{color:var(--ink);font-weight:600}
@@ -73,9 +76,9 @@
         <h2 style="font-family:var(--head);font-weight:700;font-size:18px">参加費</h2>
         <div class="field" style="margin-top:14px">
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-size:18px;color:var(--muted)">¥</span>
-            <input id="price" class="input" type="number" value="2800" min="1500" step="100" style="width:160px" />
-            <span class="sub">／ おひとり</span>
+            <span style="font-size:18px;color:var(--muted);flex:0 0 auto">¥</span>
+            <input id="price" class="input" type="number" value="2800" min="1500" step="100" style="flex:1 1 auto;min-width:0;max-width:160px" />
+            <span class="sub" style="flex:0 0 auto;white-space:nowrap">／ おひとり</span>
           </div>
           <p id="pricehint" class="sub" style="font-size:12px;margin-top:8px">手取りを守るため、参加費は<b>1,500円から</b>設定できます。参加費には別途、決済手数料3.6%（約101円）がかかります。</p>
           <div class="calc">
