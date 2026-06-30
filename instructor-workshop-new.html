@@ -18,8 +18,8 @@
     .two>*{min-width:0}
     @media(min-width:600px){.two{grid-template-columns:repeat(2,minmax(0,1fr))}}
     /* iOS Safari等でネイティブ日付/時刻入力が固有幅を持ち箱からはみ出るのを防ぐ */
-    input[type="date"],input[type="time"]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-height:46px}
-    input[type="date"]::-webkit-date-and-time-value{text-align:left}
+    input[type="date"],input[type="time"]{-webkit-appearance:none;appearance:none;width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-height:46px;text-align:left}
+    input[type="date"]::-webkit-date-and-time-value,input[type="time"]::-webkit-date-and-time-value{text-align:left}
     input[type="date"]::-webkit-calendar-picker-indicator,input[type="time"]::-webkit-calendar-picker-indicator{margin-left:auto}
     .calc{background:var(--soft);border-radius:14px;padding:14px;margin-top:14px;font-size:14px}
     .calc .r{display:flex;justify-content:space-between;color:var(--muted)}
